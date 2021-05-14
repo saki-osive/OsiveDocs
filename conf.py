@@ -40,7 +40,6 @@ release = u'1.0'
 # ones.
 
 extensions = [
-    'sphinx_panels',
     "sphinx_rtd_theme",  
     'sphinx.ext.autodoc', 
     'sphinx.ext.todo', 
