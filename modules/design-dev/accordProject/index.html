@@ -1,0 +1,1120 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accord Project Guide &#8212; Blockchain Docs 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/my_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/s4defs-roles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Welcome to Greens Project’s documentation!" href="../../greens/index.html" />
+    <link rel="prev" title="Solution design and Development" href="../index.html" />
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+</script>
+
+<!-- VUE -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+
+<!-- Mermaid Js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<!-- Vuetify -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+<!-- Timeline -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-cute-timeline@1.2.8/dist/vue-cute-timeline.min.js"></script> -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../index.html">
+    
+      <p class="title">Blockchain Docs</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../homeLabSetups/index.html">Project-1 : Devops</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../DLTSetups/index.html">Project-2 : Blockchain Setups</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Project-3 : Solution design and Development</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../greens/index.html">Project-4 : Team Project : Greens</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+        
+        
+          
+            
+                <li class="active">
+                    <a href="">Accord Project</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#accord-projects" class="nav-link">Accord Projects</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#accord-steps-flow-diagram" class="nav-link">Accord Steps Flow Diagram</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#install-cicero" class="nav-link">Install Cicero</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#prerequisites" class="nav-link">Prerequisites</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#getting-started" class="nav-link">Getting started</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#contract-template-creation" class="nav-link">Contract Template Creation</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#generate-template" class="nav-link">Generate Template</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#template-structure" class="nav-link">Template Structure</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#template-text" class="nav-link">Template Text</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ciceromark" class="nav-link">CiceroMark</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#templatemark" class="nav-link">TemplateMark</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#variables" class="nav-link">Variables</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#complex-types-variables" class="nav-link">Complex Types Variables</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#other-complex-types" class="nav-link">Other Complex Types</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#blocks" class="nav-link">Blocks</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#inline-blocks" class="nav-link">Inline Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#conditional-blocks" class="nav-link">Conditional Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#optional-blocks" class="nav-link">Optional Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#with-blocks" class="nav-link">With Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#join-blocks" class="nav-link">Join Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#container-blocks" class="nav-link">Container Blocks</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#unordered-lists" class="nav-link">Unordered Lists</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#ordered-lists" class="nav-link">Ordered Lists</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#clause-blocks" class="nav-link">Clause Blocks</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#concerto-model" class="nav-link">Concerto Model</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#notes" class="nav-link">Notes:</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#classes" class="nav-link">Classes</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#enumerations" class="nav-link">Enumerations</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#properties" class="nav-link">Properties</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="accord-project-guide">
+<h1>Accord Project Guide<a class="headerlink" href="#accord-project-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="accord-projects">
+<h2>Accord Projects<a class="headerlink" href="#accord-projects" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><img alt="../../../_images/projects.png" src="../../../_images/projects.png" />
+</div></blockquote>
+</div>
+<div class="section" id="accord-steps-flow-diagram">
+<h2>Accord Steps Flow Diagram<a class="headerlink" href="#accord-steps-flow-diagram" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><img alt="../../../_images/flow--diagram.png" src="../../../_images/flow--diagram.png" />
+<img alt="../../../_images/Accord-Blockchain.png" src="../../../_images/Accord-Blockchain.png" />
+<img alt="../../../_images/Accord-Blockchain.png" src="../../../_images/Accord-Blockchain.png" />
+</div></blockquote>
+</div>
+<div class="section" id="install-cicero">
+<h2>Install Cicero<a class="headerlink" href="#install-cicero" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Node.js</p></li>
+<li><p>npm</p></li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install cicero commandline tools</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g @accordproject/cicero-cli
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install VS Code</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add microsoft repositories</span>
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc <span class="p">|</span> gpg --dearmor &gt; packages.microsoft.gpg
+sudo install -o root -g root -m <span class="m">644</span> packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+sudo sh -c <span class="s1">&#39;echo &quot;deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main&quot; &gt; /etc/apt/sources.list.d/vscode.list&#39;</span>
+
+<span class="c1"># Update and install code</span>
+sudo apt update
+sudo apt install code
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">yo</span></code> Yeoman extension on VS Code</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">Accord</span> <span class="pre">Project</span></code> extension on VS Code</p>
+<blockquote>
+<div><img alt="../../../_images/AccordProjectExtension.png" src="../../../_images/AccordProjectExtension.png" />
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="contract-template-creation">
+<h2>Contract Template Creation<a class="headerlink" href="#contract-template-creation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generate-template">
+<h3>Generate Template<a class="headerlink" href="#generate-template" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install template generator tool</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm install -g yo
+npm install -g @accordproject/generator-cicero-template
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Then generate your new project:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yo @accordproject/cicero-template
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="template-structure">
+<h3>Template Structure<a class="headerlink" href="#template-structure" title="Permalink to this headline">¶</a></h3>
+<p>The template structure is like as below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>package.json
+Metadata <span class="k">for</span> the template <span class="o">(</span>name, version, description etc<span class="o">)</span>
+
+README.md
+    A markdown file that describes the purpose and correct usage <span class="k">for</span> the template
+
+text/grammar.tem.md
+    The default grammar <span class="k">for</span> the template
+
+text/sample.md
+    A sample clause or contract text that is valid <span class="k">for</span> the template
+
+model/
+    A collection of Concerto model files <span class="k">for</span> the template. They define the Template Model
+    and models <span class="k">for</span> the State, Request, Response, and Obligations used during execution.
+
+logic/
+    A collection of Ergo files that implement the business logic <span class="k">for</span> the template
+
+test/
+    A collection of unit tests <span class="k">for</span> the template
+
+state.json <span class="o">(</span>optional<span class="o">)</span>
+    A sample valid state <span class="k">for</span> the clause or contract
+
+request.json <span class="o">(</span>optional<span class="o">)</span>
+    A sample valid request to trigger execution <span class="k">for</span> the template
+</pre></div>
+</div>
+</div>
+<div class="section" id="template-text">
+<h3>Template Text<a class="headerlink" href="#template-text" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">text/grammar.tem.md</span></code> contains grammar of the template</p>
+<blockquote>
+<div><p>Example</p>
+<p>Name of the person to greet: {{name}}.</p>
+<p>Thank you!</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text/sample.md</span></code> contains a sample valid for that grammar.</p>
+<blockquote>
+<div><p>Example</p>
+<p>Name of the person to greet: “Fred Blogs”.
+Thank you!</p>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{name}}</span></code> is a variable.</p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<p>Name of the person to greet: {{name}}.</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{%</span> <span class="pre">expression</span> <span class="pre">%}}</span></code> for formulas</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{#blockName</span> <span class="pre">variableName}}</span> <span class="pre">{{/blockName}}</span></code>. Blocks which may contain additional text or markdown.</p></li>
+</ul>
+</div>
+<div class="section" id="ciceromark">
+<h3>CiceroMark<a class="headerlink" href="#ciceromark" title="Permalink to this headline">¶</a></h3>
+<p>CiceroMark is used to express the natural language text for legal clauses or contracts.</p>
+<ul>
+<li><p>Clauses within a contract can be identified using a clause block:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">{{</span><span class="c1">#clause clauseName}}</span>
+text of the clause
+<span class="o">{{</span>/clause<span class="o">}}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{{%</span> <span class="pre">result_of_the_formula</span> <span class="pre">%}}</span></code> identifies the results of formulas within a contract or clause.</p></li>
+</ul>
+</div>
+<div class="section" id="templatemark">
+<h3>TemplateMark<a class="headerlink" href="#templatemark" title="Permalink to this headline">¶</a></h3>
+<p>TemplateMark is an extension to CommonMark used to write the text in Accord Project templates.</p>
+<div class="section" id="variables">
+<h4>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h4>
+<p>Standard variables are written {{variableName}} where variableName is a variable declared in the model.</p>
+<p><strong>String Variable</strong></p>
+<p>If the variable <cite>variableName</cite> has type String in the model:</p>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o String variableName
+</pre></div>
+</div>
+<p>Example: <cite>text/grammer.md</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This Supply Sales Agreement is made between <span class="o">{{</span>supplier<span class="o">}}</span> and <span class="o">{{</span>buyer<span class="o">}}</span>.
+</pre></div>
+</div>
+<p>Example: <cite>model/model.cto</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>asset Template extends AccordClause <span class="o">{</span>
+    o String buyer
+    o String supplier
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Numeric Variable</strong></p>
+<p>If the variable variableName has type <cite>Double</cite>, <cite>Integer</cite> or <cite>Long</cite> in the model:</p>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o Double variableName
+o Integer variableName2
+o Long variableName3
+</pre></div>
+</div>
+<p>Example: <cite>text/grammer.md</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The penalty amount is <span class="o">{{</span>penaltyPercentage<span class="o">}}</span>% of the total value of the Equipment whose delivery has been delayed.
+</pre></div>
+</div>
+<p>Example: <cite>model/model.cto</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>asset Template extends AccordClause <span class="o">{</span>
+    o Double penaltyPercentage
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Enum Variables</strong></p>
+<p>If the variable <code class="docutils literal notranslate"><span class="pre">variableName</span></code> has an enumerated type:</p>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o EnumType variableName
+</pre></div>
+</div>
+<p>Example: <cite>text/grammer.md</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Monetary amounts in this contract are denominated in <span class="o">{{</span>currency<span class="o">}}</span>.
+</pre></div>
+</div>
+<p>Example: <cite>model/model.cto</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import org.accordproject.money.CurrencyCode from https://models.accordproject.org/money.cto
+asset Template extends AccordClause <span class="o">{</span>
+    o CurrencyCode currency
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Formatted Variables</strong></p>
+<p>Formatted variables are written <code class="docutils literal notranslate"><span class="pre">{{variableName</span> <span class="pre">as</span> <span class="pre">&quot;FORMAT&quot;}}</span></code> where <code class="docutils literal notranslate"><span class="pre">variableName</span></code> is a variable declared in the model and the <code class="docutils literal notranslate"><span class="pre">FORMAT</span></code> is a type-dependent description for the syntax of the variables in the contract.</p>
+<blockquote>
+<div><p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The contract was signed on <span class="o">{{</span>contractDate as <span class="s2">&quot;DD/MM/YYYY&quot;</span><span class="o">}}</span>.
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>DateTime Variables</strong></p>
+<p>If the variable <cite>variableName</cite> has type <cite>DateTime</cite>:</p>
+<blockquote>
+<div><p><cite>Example:</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The contract was signed on <span class="o">{{</span>contractDate as <span class="s2">&quot;DD/MM/YYYY&quot;</span><span class="o">}}</span>.
+// OUTPUT: The contract was signed on <span class="m">26</span>/04/2019.
+
+dateTimeProperty: <span class="o">{{</span>dateTimeProperty as <span class="s2">&quot;D MMM YYYY HH:mm:ss.SSSZ&quot;</span><span class="o">}}</span>
+//  OUTPUT: dateTimeProperty: <span class="m">1</span> Jan <span class="m">2018</span> <span class="m">05</span>:15:20.123+01:02
+
+dateTimeProperty: <span class="o">{{</span>dateTimeProperty as <span class="s2">&quot;D-M-YYYY H mm:ss.SSSZ&quot;</span><span class="o">}}</span>
+//  OUTPUT: dateTimeProperty: <span class="m">31</span>-12-2019 <span class="m">2</span> <span class="m">59</span>:01.001+01:01
+
+dateTimeProperty: <span class="o">{{</span>dateTimeProperty as <span class="s2">&quot;DD/MM/YYYY&quot;</span><span class="o">}}</span>
+//  OUTPUT: dateTimeProperty: <span class="m">01</span>/12/2018
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Amount Variables</strong></p>
+<p>If the variable variableName is of type <code class="docutils literal notranslate"><span class="pre">Integer</span></code>, <code class="docutils literal notranslate"><span class="pre">Long</span></code>, <code class="docutils literal notranslate"><span class="pre">Double</span></code> or <code class="docutils literal notranslate"><span class="pre">MonetaryAmount</span></code>:</p>
+<p>The following formatting tokens are supported:</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 15%" />
+<col style="width: 38%" />
+<col style="width: 38%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Example</p></td>
+<td><p>Description</p></td>
+<td><p>Type Supported</p></td>
+</tr>
+<tr class="row-even"><td><p>0,0</p></td>
+<td><p>3,100,200</p></td>
+<td><p>integer part with , separator</p></td>
+<td><p>Integer,Long,Double,MonetaryAmount</p></td>
+</tr>
+<tr class="row-odd"><td><p>0 0</p></td>
+<td><p>3 100 200</p></td>
+<td><p>integer part with  separator</p></td>
+<td><p>Integer,Long,Double,MonetaryAmount</p></td>
+</tr>
+<tr class="row-even"><td><p>0,0.00</p></td>
+<td><p>3,100,200.95</p></td>
+<td><p>decimal with two digits precision</p></td>
+<td><p>Double,MonetaryAmount</p></td>
+</tr>
+<tr class="row-odd"><td><p>0 0,00</p></td>
+<td><p>3 100 200,95</p></td>
+<td><p>decimal with two digits precision</p></td>
+<td><p>Double,MonetaryAmount</p></td>
+</tr>
+<tr class="row-even"><td><p>0,0.0000</p></td>
+<td><p>3,100,200.95</p></td>
+<td><p>decimal with four digits precision</p></td>
+<td><p>Double,MonetaryAmount</p></td>
+</tr>
+<tr class="row-odd"><td><p>CCC</p></td>
+<td><p>USD</p></td>
+<td><p>currency code</p></td>
+<td><p>MonetaryAmount</p></td>
+</tr>
+<tr class="row-even"><td><p>K</p></td>
+<td><p>$</p></td>
+<td><p>currency symbol</p></td>
+<td><p>MonetaryAmount</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o Integer integerVariable
+o Long longVariable
+o Double doubleVariable
+o MonetaryAmount monetaryVariable
+</pre></div>
+</div>
+<p>Examples:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The manuscript shall be completed within <span class="o">{{</span>days as <span class="s2">&quot;0,0&quot;</span><span class="o">}}</span> days.
+//  OUTPUT: The manuscript shall be completed within <span class="m">1</span>,001 days.
+
+The manuscript shall contain at most <span class="o">{{</span>words as <span class="s2">&quot;0 0&quot;</span><span class="o">}}</span> words.
+//  OUTPUT: The manuscript shall contain at most <span class="m">1</span> <span class="m">500</span> <span class="m">001</span> words.
+
+The effective range of the device should be at least <span class="o">{{</span>distance as <span class="s2">&quot;0,0.00mm&quot;</span><span class="o">}}</span>.
+//  OUTPUT: The effective range of the device should be at least <span class="m">1</span>,250,400.99mm.
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="complex-types-variables">
+<h3>Complex Types Variables<a class="headerlink" href="#complex-types-variables" title="Permalink to this headline">¶</a></h3>
+<p><strong>Duration Types</strong></p>
+<p>If the variable <cite>variableName</cite> has type <cite>Duration</cite>:</p>
+<blockquote>
+<div><p>Examples:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>asset Template extends AccordClause <span class="o">{</span>
+    o Duration termination
+<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="other-complex-types">
+<h3>Other Complex Types<a class="headerlink" href="#other-complex-types" title="Permalink to this headline">¶</a></h3>
+<p>If the variable <cite>variableName</cite> has a complex type <cite>ComplexType</cite> (such as an <cite>asset</cite>, a <cite>concept</cite>, etc.)</p>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>o ComplexType variableName
+</pre></div>
+</div>
+<p>Example: Model for address type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>import org.accordproject.address.PostalAddress from https://models.accordproject.org/address.cto
+asset Template extends AccordClause <span class="o">{</span>
+    o PostalAddress address
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Address of the supplier: <span class="o">{{</span>address<span class="o">}}</span>.
+// OUTPUT: Address of the supplier: <span class="s2">&quot;555 main street&quot;</span> <span class="s2">&quot;10290&quot;</span> <span class="s2">&quot;&quot;</span> <span class="s2">&quot;NY&quot;</span> <span class="s2">&quot;New York&quot;</span> <span class="s2">&quot;10001&quot;</span>.
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="blocks">
+<h3>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h3>
+<p>CiceroMark uses blocks to enable more advanced scenarios, to handle optional or repeated text (e.g., lists), to change the variables in scope for a given section of the text, etc.</p>
+<div class="section" id="inline-blocks">
+<h4>Inline Blocks<a class="headerlink" href="#inline-blocks" title="Permalink to this headline">¶</a></h4>
+<p>Inline blocks correspond to inline elements in the markdown.</p>
+<blockquote>
+<div><p>Syntax:</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#blockName variableName parameters}}...{{/blockName}}
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>where <cite>blockName</cite> indicates which kind of block it is (e.g., conditional block or optional block), <cite>variableName</cite> indicates the template variable which is in scope within the block. For certain blocks, additional <cite>parameters</cite> can be passed to control the behavior of that block (e.g., the <cite>join</cite> block creates text from a list with an optional separator).</p></li>
+</ul>
+</div>
+<div class="section" id="conditional-blocks">
+<h4>Conditional Blocks<a class="headerlink" href="#conditional-blocks" title="Permalink to this headline">¶</a></h4>
+<p>Conditional blocks enables text which depends on a value of a <code class="docutils literal notranslate"><span class="pre">Boolean</span></code> variable in your model:</p>
+<blockquote>
+<div><p>Syntax: Using if block</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#if forceMajeure}}This is a force majeure{{/if}}
+</pre></div>
+</div>
+<p>Syntax: Using if and else block</p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#if forceMajeure}}This is a force majeure{{else}}This is <span class="ge">*not*</span> a force majeure{{/if}}
+</pre></div>
+</div>
+<p><strong>Example:</strong> Using JSON Data</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;$class&quot;</span><span class="p">:</span> <span class="s2">&quot;org.accordproject.foo.Status&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;forceMajeure&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Result</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>This is a force majeure
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="optional-blocks">
+<h4>Optional Blocks<a class="headerlink" href="#optional-blocks" title="Permalink to this headline">¶</a></h4>
+<p>Optional blocks enables text which depends on the presence of absence of an <cite>optional</cite> variable in your model:</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#optional forceMajeure}}This applies except for Force Majeure cases in a {{miles}} miles radius.{{/optional}}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="with-blocks">
+<h4>With Blocks<a class="headerlink" href="#with-blocks" title="Permalink to this headline">¶</a></h4>
+<p>A <cite>with</cite> block can be used to changes variables that are in scope in a specific part of a template grammar:</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>For the Tenant: {{#with tenant}}{{partyId}}, domiciled at {{address}}{{/with}}
+For the Landlord: {{#with landlord}}{{partyId}}, domiciled at {{address}}{{/with}}
+</pre></div>
+</div>
+<p><strong>Example:</strong></p>
+<p>Using request JSON</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;$class&quot;: &quot;org.accordproject.rentaldeposit.RentalDepositClause&quot;,
+    &quot;contractId&quot;: &quot;31d817e2-d62a-4b70-b395-acd0d5da09f5&quot;,
+    &quot;tenant&quot;: {
+        &quot;$class&quot;: &quot;org.accordproject.rentaldeposit.RentalParty&quot;,
+        &quot;partyId&quot;: &quot;Michael&quot;,
+        &quot;address&quot;: &quot;111, main street&quot;
+    }
+...
+}
+</pre></div>
+</div>
+<p><cite>Result:</cite></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>For the Tenant: &quot;Michael&quot;, domiciled at &quot;111, main street&quot;
+For the Landlord: &quot;Parsa&quot;, domiciled at &quot;222, chestnut road&quot;
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="join-blocks">
+<h4>Join Blocks<a class="headerlink" href="#join-blocks" title="Permalink to this headline">¶</a></h4>
+<p>A <code class="docutils literal notranslate"><span class="pre">join</span></code> block can be used to iterate over a variable containing an array of values, and can use an (optional) separator.</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>Discount applies to the following items: {{#join items separator=&quot;, &quot;}}{{name}} ({{id}}){{/join}}.
+</pre></div>
+</div>
+<p><cite>Result: Using below JSON Request</cite></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>{
+    &quot;$class&quot;: &quot;org.accordproject.sale.Order&quot;,
+    &quot;contractId&quot;: &quot;31d817e2-d62a-4b70-b395-acd0d5da09f5&quot;,
+    &quot;items&quot;: [{
+        &quot;$class&quot;: &quot;org.accordproject.slate.Item&quot;,
+        &quot;id&quot;: &quot;111&quot;,
+        &quot;name&quot;: &quot;Pineapple&quot;
+        },{
+        &quot;$class&quot;: &quot;org.accordproject.slate.Item&quot;,
+        &quot;id&quot;: &quot;222&quot;,
+        &quot;name&quot;: &quot;Strawberries&quot;
+        },{
+        &quot;$class&quot;: &quot;org.accordproject.slate.Item&quot;,
+        &quot;id&quot;: &quot;333&quot;,
+        &quot;name&quot;: &quot;Pomegranate&quot;
+        }
+    ]
+}
+
+`Output:`
+
+.. code-block:: md
+
+    Discount applies to the following items: Pineapple (111), Strawberries (222), Pomegranate (333).
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="container-blocks">
+<h4>Container Blocks<a class="headerlink" href="#container-blocks" title="Permalink to this headline">¶</a></h4>
+<p>CiceroMark uses block expressions to enable more advanced scenarios, to handle optional or repeated text (e.g., lists), to change the variables in scope for a given section of the text, etc.</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#blockName variableName parameters}}
+...
+{{/blockName}}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="unordered-lists">
+<h4>Unordered Lists<a class="headerlink" href="#unordered-lists" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#ulist rates}}
+{{volumeAbove}}$ M&lt;= Volume &lt; {{volumeUpTo}}$ M : {{rate}}%
+{{/ulist}}
+</pre></div>
+</div>
+<p><cite>Example: Using below request json</cite></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="nt">&quot;$class&quot;</span><span class="p">:</span> <span class="s2">&quot;org.accordproject.volumediscountlist.VolumeDiscountContract&quot;</span><span class="p">,</span>
+<span class="nt">&quot;contractId&quot;</span><span class="p">:</span> <span class="s2">&quot;19243313-adc2-4ff1-aa41-993816ed2cdc&quot;</span><span class="p">,</span>
+<span class="nt">&quot;rates&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="nt">&quot;$class&quot;</span><span class="p">:</span> <span class="s2">&quot;org.accordproject.volumediscountlist.RateRange&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;volumeUpTo&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;volumeAbove&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="mf">3.1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="nt">&quot;$class&quot;</span><span class="p">:</span> <span class="s2">&quot;org.accordproject.volumediscountlist.RateRange&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;volumeUpTo&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nt">&quot;volumeAbove&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="mf">3.1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="nt">&quot;$class&quot;</span><span class="p">:</span> <span class="s2">&quot;org.accordproject.volumediscountlist.RateRange&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;volumeUpTo&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="nt">&quot;volumeAbove&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="nt">&quot;rate&quot;</span><span class="p">:</span> <span class="mf">2.9</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><cite>Output:</cite></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span><span class="k">-</span> 0.0$ M &lt;= Volume &lt; 1.0$ M : 3.1%
+<span class="k">-</span> 1.0$ M &lt;= Volume &lt; 10.0$ M : 3.1%
+<span class="k">-</span> 10.0$ M &lt;= Volume &lt; 50.0$ M : 2.9%
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="ordered-lists">
+<h4>Ordered Lists<a class="headerlink" href="#ordered-lists" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>{{#olist rates}}
+{{volumeAbove}}$ M &lt;= Volume &lt; {{volumeUpTo}}$ M : {{rate}}%
+{{/olist}}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="clause-blocks">
+<h4>Clause Blocks<a class="headerlink" href="#clause-blocks" title="Permalink to this headline">¶</a></h4>
+<p>Clause blocks can be used to include a clause template within a contract template:</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>Payment
+-------
+{{#clause payment}}
+As consideration in full for the rights granted herein, Licensee shall pay Licensor a one-time
+fee in the amount of {{amountText}} ({{amount}}) upon execution of this Agreement, payable as
+follows: {{paymentProcedure}}.
+{{/clause}}
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="concerto-model">
+<h3>Concerto Model<a class="headerlink" href="#concerto-model" title="Permalink to this headline">¶</a></h3>
+<p>The Concerto Modeling Language (CML) allows you to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Define an object-oriented model using a domain-specific language that is much easier to read and write than JSON/XML Schema, XMI or equivalents.</p></li>
+<li><p>Optionally edit your models using a powerful VS Code add-on with syntax highlighting and validation</p></li>
+<li><p>Create runtime instances of your model</p></li>
+<li><p>Serialize your instances to JSON</p></li>
+</ul>
+</div></blockquote>
+<div class="section" id="notes">
+<h4>Notes:<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Namespace</span></code> :Each Concerto file starts with the name of a single namespace, which contains the base definitions of asset, event, participant and transaction.</p>
+<blockquote>
+<div><p><em>Example:</em></p>
+<div class="highlight-md notranslate"><div class="highlight"><pre><span></span>namespace foo
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Imports</span></code> : In order for one namespace to reference types defined in another namespace, the types must be imported. Imports can be either qualified or can use wildcards.</p></li>
+</ul>
+</div>
+<div class="section" id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h4>
+<p><strong>Concepts</strong></p>
+<p>Concepts are similar to class declarations in most object-oriented languages, in that they may have a super-type and a set of typed properties:</p>
+<blockquote>
+<div><p><cite>Syntax:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">abstract</span> <span class="nx">concept</span> <span class="nx">Animal</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nx">DateTime</span> <span class="nx">dob</span>
+<span class="p">}</span>
+
+<span class="nx">concept</span> <span class="nx">Dog</span> <span class="kr">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">breed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Identity</strong></p>
+<p>Concepts may optionally declare an identifying field, using either the <cite>identified by</cite> (explicitly named identity field) or identified (<cite>$identifier</cite> system identity field) syntax.</p>
+<blockquote>
+<div><p><cite>Examples:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">concept</span> <span class="nx">Person</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">email</span> <span class="p">{</span>
+    <span class="nx">o</span> <span class="nb">String</span> <span class="nx">email</span>
+    <span class="nx">o</span> <span class="nb">String</span> <span class="nx">firstName</span>
+    <span class="nx">o</span> <span class="nb">String</span> <span class="nx">lastName</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>Person</cite> is defined to use the <cite>email</cite> property as its identifying field.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Assets</strong></p>
+<p>An asset is a class declaration that has a single <code class="docutils literal notranslate"><span class="pre">String</span></code> property which acts as an identifier. You can use the <code class="docutils literal notranslate"><span class="pre">modelManager</span></code>.``getAssetDeclarations`` API to look up all assets.</p>
+<blockquote>
+<div><p><cite>Syntax:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">asset</span> <span class="nx">Vehicle</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">vin</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">vin</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Participants</strong></p>
+<p>Participants are class declarations that have a single <code class="docutils literal notranslate"><span class="pre">String</span></code> property acting as an identifier.</p>
+<blockquote>
+<div><p><cite>Syntax:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">participant</span> <span class="nx">Customer</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">email</span> <span class="p">{</span>
+    <span class="nx">o</span> <span class="nb">String</span> <span class="nx">email</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Transactions</strong></p>
+<p>Transactions are similar to participants in that they are also class declarations that have a single <code class="docutils literal notranslate"><span class="pre">String</span></code> property acting as an identifier.</p>
+<blockquote>
+<div><p><cite>Syntax:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">transaction</span> <span class="nx">Order</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">orderId</span> <span class="p">{</span>
+    <span class="nx">o</span> <span class="nb">String</span> <span class="nx">orderId</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>Events</strong></p>
+<p>Events are similar to participants in that they are also class declarations that have a single String property acting as an identifier.</p>
+<blockquote>
+<div><p><cite>Syntax:</cite></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">event</span> <span class="nx">LateDelivery</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">eventId</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">eventId</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="enumerations">
+<h4>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h4>
+<p>Enumerations are used to capture lists of domain values.</p>
+<blockquote>
+<div><p><strong>Syntax:</strong></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Cardsuit</span> <span class="p">{</span>
+    <span class="nx">o</span> <span class="nx">CLUBS</span>
+    <span class="nx">o</span> <span class="nx">DIAMONDS</span>
+    <span class="nx">o</span> <span class="nx">HEARTS</span>
+    <span class="nx">o</span> <span class="nx">SPADES</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="properties">
+<h4>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h4>
+<p>Class declarations contain properties. Each property has a type which can either be a type defined in the same namespace, an imported type, or a primitive type.</p>
+<p><strong>Primitive types</strong></p>
+<blockquote>
+<div><table class="table">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 89%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Type</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>a UTF8 encoded String.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Double</p></td>
+<td><p>a double precision 64 bit numeric value.</p></td>
+</tr>
+<tr class="row-even"><td><p>Integer</p></td>
+<td><p>a 32 bit signed whole number.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Long</p></td>
+<td><p>a 64 bit signed whole number.</p></td>
+</tr>
+<tr class="row-even"><td><p>DateTime</p></td>
+<td><p>an ISO-8601 compatible time instance, with optional time zone and UTZ offset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Boolean</p></td>
+<td><p>a Boolean value, either true or false.</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><strong>Meta Properties</strong></p>
+<blockquote>
+<div><table class="table">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Property</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>[]</p></td>
+<td><p>declares that the property is an array</p></td>
+</tr>
+<tr class="row-odd"><td><p>optional</p></td>
+<td><p>declares that the property is not required for the instance to be valid</p></td>
+</tr>
+<tr class="row-even"><td><p>default</p></td>
+<td><p>declares a default value for the property, if no value is specified</p></td>
+</tr>
+<tr class="row-odd"><td><p>range</p></td>
+<td><p>declares a valid range for numeric properties</p></td>
+</tr>
+<tr class="row-even"><td><p>regex</p></td>
+<td><p>declares a validation regex for string properties</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">Examples:</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">o</span> <span class="nx">Integer</span> <span class="nx">intLowerUpper</span> <span class="nx">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// greater than or equal to -1 and less than 1</span>
+<span class="nx">o</span> <span class="nx">Integer</span> <span class="nx">intLower</span> <span class="nx">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,]</span> <span class="c1">// greater than or equal to -1</span>
+<span class="nx">o</span> <span class="nx">Integer</span> <span class="nx">intUpper</span> <span class="nx">range</span><span class="o">=</span><span class="p">[,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// less than 1</span>
+
+<span class="nx">asset</span> <span class="nx">Vehicle</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">model</span> <span class="k">default</span><span class="o">=</span><span class="s2">&quot;F150&quot;</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">make</span> <span class="k">default</span><span class="o">=</span><span class="s2">&quot;FORD&quot;</span>
+<span class="nx">o</span> <span class="nx">Integer</span> <span class="nx">year</span> <span class="k">default</span><span class="o">=</span><span class="mi">2016</span> <span class="nx">range</span><span class="o">=</span><span class="p">[</span><span class="mi">1990</span><span class="p">,]</span> <span class="nx">optional</span> <span class="c1">// model year must be 1990 or higher</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">V5cID</span> <span class="nx">regex</span><span class="o">=</span><span class="sr">/^[A-z][A-z][0-9]{7}/</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Relationships</strong></p>
+<p>A relationship in Concerto Modeling Language (CML) is a tuple composed of:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The namespace of the type being referenced</p></li>
+<li><p>The type name of the type being referenced</p></li>
+<li><p>The identifier of the instance being referenced</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">Example:</span></code></p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">asset</span> <span class="nx">OrderLine</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">orderLineId</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">orderLineId</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">sku</span>
+<span class="p">}</span>
+
+<span class="nx">asset</span> <span class="nx">Order</span> <span class="nx">identified</span> <span class="nx">by</span> <span class="nx">orderId</span> <span class="p">{</span>
+<span class="nx">o</span> <span class="nb">String</span> <span class="nx">orderId</span>
+<span class="o">--&gt;</span> <span class="nx">OrderLine</span><span class="p">[]</span> <span class="nx">orderlines</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this example, the model declares that an <cite>Order</cite> has-an array of reference to <cite>OrderLines</cite>. Deleting the <cite>Order</cite> has no impact on the <cite>OrderLine</cite>. When the <cite>Order</cite> is serialized the JSON only the IDs of the <cite>OrderLines</cite> are stored within the <cite>Order</cite>, not the <cite>OrderLines</cite> themselves.</p>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Solution design and Development</a>
+    <a class='right-next' id="next-link" href="../../greens/index.html" title="next page">Welcome to Greens Project’s documentation!</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+     <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, dev.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>

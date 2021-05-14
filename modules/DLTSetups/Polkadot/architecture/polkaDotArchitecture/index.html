@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Polkadot Architecture &#8212; Blockchain Docs 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/my_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/css/s4defs-roles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../_static/jquery.js"></script>
+    <script src="../../../../../_static/underscore.js"></script>
+    <script src="../../../../../_static/doctools.js"></script>
+    <script src="../../../../../_static/language_data.js"></script>
+    <script src="../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../_static/copybutton.js"></script>
+    <script src="../../../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Installation" href="../../installation/index.html" />
+    <link rel="prev" title="Architecture" href="../index.html" />
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+</script>
+
+<!-- VUE -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+
+<!-- Mermaid Js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<!-- Vuetify -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+<!-- Timeline -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-cute-timeline@1.2.8/dist/vue-cute-timeline.min.js"></script> -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../../../index.html">
+    
+      <p class="title">Blockchain Docs</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../../homeLabSetups/index.html">Project-1 : Devops</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../../../index.html">Project-2 : Blockchain Setups</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../../design-dev/index.html">Project-3 : Solution design and Development</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../../greens/index.html">Project-4 : Team Project : Greens</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="../../../neoBlockchain/index.html"> Neo Blockchain</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../../ethereumPrivate/index.html"> Ethereum Private Network Setup</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../../hyperledgerBesu/index.html"> Hyperledger Besu</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../../index.html"> Polkadot Setup</a>
+                    <ul>
+                    
+                        <li class="">
+                            <a href="../../history/index.html">History</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="../index.html">Architecture</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="../../installation/index.html">Installation</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../../hyperledgerFabric/index.html"> Hyperledger Fabric</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../../cardano/index.html"> Cardano</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#" class="nav-link">Polkadot Architecture</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#what-is-the-relay-chain" class="nav-link">What is the Relay chain ?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#what-is-an-execution-slot" class="nav-link">What is an execution slot?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#parachains-and-parathreads" class="nav-link">Parachains and Parathreads</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#the-difference-between-parachains-and-parathreads" class="nav-link">The difference between Parachains and Parathreads</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#what-is-active-validator-set" class="nav-link">What is active validator set?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#what-are-nodes" class="nav-link">What are nodes?</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="polkadot-architecture">
+<h1>Polkadot Architecture<a class="headerlink" href="#polkadot-architecture" title="Permalink to this headline">¶</a></h1>
+<p>Polkadot is a system of heterogeneous multi-chains that allows for shared security and
+interoperability between these chains.</p>
+<p>There most important components of Polkadot are :</p>
+<ul class="simple">
+<li><p>Relay chain</p></li>
+<li><p>Parachains and parathreads</p></li>
+<li><p>Nodes</p></li>
+</ul>
+<img alt="../../../../../_images/polkas.jpg" src="../../../../../_images/polkas.jpg" />
+</div>
+<div class="section" id="what-is-the-relay-chain">
+<h1>What is the <code class="docutils literal notranslate"><span class="pre">Relay</span> <span class="pre">chain</span></code> ?<a class="headerlink" href="#what-is-the-relay-chain" title="Permalink to this headline">¶</a></h1>
+<p>The relay chain is the central chain in Polkadot that works as a master and is responsible for delegating
+the specific work to the parachains.</p>
+<p>It has the following features :</p>
+<ul class="simple">
+<li><p>Interacting with the governing mechanism</p></li>
+<li><p>Parachain auctions</p></li>
+<li><p>Participating in NPoS (Nominated Proof of Stake)</p></li>
+<li><p>Coordinating the whole system including parachains</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An important point to know here is an <code class="docutils literal notranslate"><span class="pre">execution</span> <span class="pre">slot</span></code> in Polkadot.</p>
+</div>
+</div>
+<div class="section" id="what-is-an-execution-slot">
+<h1>What is an execution slot?<a class="headerlink" href="#what-is-an-execution-slot" title="Permalink to this headline">¶</a></h1>
+<p>Just as there are cores in a processor on which a process executes, there are execution slots in Polkadot
+on which Parachains and Parathreads execute. These slots are like cores on a computer’s processor
+(a modern laptop’s processor may have eight cores, for example). Each one of these cores can run one process at a time.
+Polkadot allots these slots using two subscription models: parachains and parathreads.</p>
+</div>
+<div class="section" id="parachains-and-parathreads">
+<h1>Parachains and Parathreads<a class="headerlink" href="#parachains-and-parathreads" title="Permalink to this headline">¶</a></h1>
+<p>Both of these are hypothetical constructs which can be thought of as a data structure for the application
+which is being deployed on an execution slot. A Parachain may or may not take the form of a blockchain.
+They take their name from the concept of parallelized chains that run parallel to the Relay Chain.
+Due to their parallel nature, they are able to parallelize transaction processing and achieve
+scalability of the Polkadot system.
+They share in the security of the entire Polkadot network and can communicate with other Parachains through XCMP
+(Cross-chain Message Passing) protocol.</p>
+<p>The image given below highlights the difference between Parachains and Parathreads :</p>
+<img alt="../../../../../_images/ParachainsVsParathread.png" src="../../../../../_images/ParachainsVsParathread.png" />
+</div>
+<div class="section" id="the-difference-between-parachains-and-parathreads">
+<h1>The difference between Parachains and Parathreads<a class="headerlink" href="#the-difference-between-parachains-and-parathreads" title="Permalink to this headline">¶</a></h1>
+<p>Both of these constructs have the same API, the difference is only economic.</p>
+<p>In Parachains, <strong>a whole execution slot is dedicated</strong>, doesn’t matter if or how much the Parachain is
+utilising that slot during the time in which it is taken on lease.</p>
+<p>Parathreads on the other hand have a different payment model, when you use a Parathread for your block creation,
+you <strong>pay based on the number of blocks created</strong> i.e. pay per block. It can be considered a serverless approach.
+When a block has to be created, a Parathread becomes active, at other times, it is like a sleeping process.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before learning about the nodes, it’s better to know about what is an active <code class="docutils literal notranslate"><span class="pre">validator</span> <span class="pre">set</span></code>.</p>
+</div>
+</div>
+<div class="section" id="what-is-active-validator-set">
+<h1>What is active validator set?<a class="headerlink" href="#what-is-active-validator-set" title="Permalink to this headline">¶</a></h1>
+<p>The validator nodes form an active <code class="docutils literal notranslate"><span class="pre">validator</span> <span class="pre">set</span></code>. This active validator set contains a set of nodes that validate
+state transition from collators. For a validator node to get in the active validator set, it must be
+nominated to be in the set by the nominator nodes.</p>
+<img alt="../../../../../_images/nodesPolka.png" src="../../../../../_images/nodesPolka.png" />
+</div>
+<div class="section" id="what-are-nodes">
+<h1>What are nodes?<a class="headerlink" href="#what-are-nodes" title="Permalink to this headline">¶</a></h1>
+<p>Nodes are the physical machines(computers) on a blockchains that actually make the blocks.
+These nodes lie under 3 categories in Polkadot :</p>
+<ul class="simple">
+<li><p>Validators</p></li>
+</ul>
+<p>Validators are the nodes that produce blocks on the Relay Chain. They also accept proofs of valid state transition
+from collators. In return, they receive staking rewards.</p>
+<ul class="simple">
+<li><p>Collators</p></li>
+</ul>
+<p>Collators are the nodes that lie both on the Relay chain and the Parachain. They collect parachain transactions
+and produce state transition proofs for the validators on the Relay Chain. They can also send and receive messages
+from other parachains using XCMP.</p>
+<ul class="simple">
+<li><p>Nominators</p></li>
+</ul>
+<p>Nominators nominate the validators in order to help them get into the active validator set and thus produce
+blocks for the chain by bonding their stake to particular validators. In return, nominators are generally rewarded with
+the portion of the staking rewards from that validator.</p>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Architecture</a>
+    <a class='right-next' id="next-link" href="../../installation/index.html" title="next page">Installation</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+     <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, dev.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>

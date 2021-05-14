@@ -1,0 +1,769 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyperledger Fabric from Scratch &#8212; Blockchain Docs 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/my_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/s4defs-roles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Cardano Setup" href="../../cardano/index.html" />
+    <link rel="prev" title="Setup HLF Test Network" href="../testNetwork/index.html" />
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+</script>
+
+<!-- VUE -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+
+<!-- Mermaid Js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<!-- Vuetify -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+<!-- Timeline -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-cute-timeline@1.2.8/dist/vue-cute-timeline.min.js"></script> -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../../index.html">
+    
+      <p class="title">Blockchain Docs</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../homeLabSetups/index.html">Project-1 : Devops</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../../index.html">Project-2 : Blockchain Setups</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../design-dev/index.html">Project-3 : Solution design and Development</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../greens/index.html">Project-4 : Team Project : Greens</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="../../neoBlockchain/index.html"> Neo Blockchain</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../ethereumPrivate/index.html"> Ethereum Private Network Setup</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../hyperledgerBesu/index.html"> Hyperledger Besu</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../Polkadot/index.html"> Polkadot Setup</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../index.html"> Hyperledger Fabric</a>
+                    <ul>
+                    
+                        <li class="">
+                            <a href="../constructs/index.html">Constructs</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="../testNetwork/index.html">Setup Test Network</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="">Setup from Scratch Guide</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../cardano/index.html"> Cardano</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#step-flow-diagram" class="nav-link">Step flow Diagram</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#getting-started" class="nav-link">Getting Started</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#start-vagrant-vm" class="nav-link">Start Vagrant VM</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#prerequisites" class="nav-link">Prerequisites</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#setup-ca-server" class="nav-link">Setup CA Server</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#setup-orderer" class="nav-link">Setup orderer</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#create-channel" class="nav-link">Create Channel</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#add-organisation-peer" class="nav-link">Add Organisation Peer</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="hyperledger-fabric-from-scratch">
+<h1>Hyperledger Fabric from Scratch<a class="headerlink" href="#hyperledger-fabric-from-scratch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-flow-diagram">
+<h2>Step flow Diagram<a class="headerlink" href="#step-flow-diagram" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../_images/hlf-Page-stepsFlow.png" src="../../../../_images/hlf-Page-stepsFlow.png" />
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Follow this document to setup Hyperledger Fabric Network</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For scripts check Appendix and Project Setup Files.</p>
+</div>
+</div>
+<div class="section" id="start-vagrant-vm">
+<h2>Start Vagrant VM<a class="headerlink" href="#start-vagrant-vm" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Start Vagrant VM</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant up
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Project Directory is <code class="docutils literal notranslate"><span class="pre">/vagrant</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /vagrant
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Change bash scripts files permissions</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./ProjectSetupFiles
+chmod +x ./*.sh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Install Prerequites</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Docker</p></li>
+<li><p>GO Language</p></li>
+<li><p>CA Server Binary</p></li>
+<li><p>Jq - JSON Utility</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./install-prereqs.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Fabric sample and binaries</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./fabric-setup.sh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="setup-ca-server">
+<h2>Setup CA Server<a class="headerlink" href="#setup-ca-server" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Create two directories in Project Folder i.e. <code class="docutils literal notranslate"><span class="pre">server</span></code> and <code class="docutils literal notranslate"><span class="pre">client</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ca-server ca-client
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy <strong>fabric-ca-server-config.yaml</strong> from <code class="docutils literal notranslate"><span class="pre">setup/config/multi-org-ca/yaml.0/fabric-ca-server-config.yaml</span></code> to <code class="docutils literal notranslate"><span class="pre">ca-server/</span></code></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rsync -avPh setup/config/multi-org-ca/yaml.0/fabric-ca-server-config.yaml ca-server/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Start Fabric CA-Server</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d <span class="se">\</span>
+--name hlf-ca-server <span class="se">\</span>
+-p <span class="m">7054</span>:7054 <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-server <span class="se">\</span>
+-v <span class="nv">$PWD</span>/ca-server:/etc/hyperledger/fabric-ca-server <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-server start
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy <strong>setup/config/multi-org-ca/yaml.0/fabric-ca-client.yaml</strong> to <cite>ca-client/caserver/admin/</cite>.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ca-client/caserver/admin/
+rsync -avPh setup/config/multi-org-ca/yaml.0/fabric-ca-client-config.yaml ca-client/caserver/admin/fabric-ca-client-config.yaml
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change <strong>fabric-ca-server</strong> <code class="docutils literal notranslate"><span class="pre">url</span></code> to Host ip address</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Enroll (Generate crypto) root admin user of HLF CA-Server</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run  --rm <span class="se">\</span>
+    --name hlf-client <span class="se">\</span>
+    -e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+    -v <span class="nv">$PWD</span>/ca-client/caserver/admin:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+    hyperledger/fabric-ca <span class="se">\</span>
+    fabric-ca-client enroll -u http://admin:pw@192.168.0.230:7054
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Register <code class="docutils literal notranslate"><span class="pre">admin</span></code> users of various organisation</p>
+<blockquote>
+<div><ul>
+<li><p>Setup <strong>fabric-ca-client</strong> binary enviroment</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span><span class="nv">$PWD</span>/ca-client/caserver/admin
+<span class="nb">export</span> <span class="nv">PROJECT_ROOT</span><span class="o">=</span><span class="nv">$PWD</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Execute below commands in bash created above inside a fabric-ca container</p>
+</div>
+<ul>
+<li><p>Register <code class="docutils literal notranslate"><span class="pre">acme-admin</span></code> user</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ATTRIBUTES</span><span class="o">=</span><span class="s1">&#39;&quot;hf.Registrar.Roles=peer,user,client&quot;,&quot;hf.AffiliationMgr=true&quot;,&quot;hf.Revoker=true&quot;&#39;</span>
+fabric-ca-client register --id.type client --id.name acme-admin --id.secret pw --id.affiliation acme --id.attrs <span class="nv">$ATTRIBUTES</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Register <code class="docutils literal notranslate"><span class="pre">budget-admin</span></code> user as Organisation admin of Budget organisation</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ATTRIBUTES</span><span class="o">=</span><span class="s1">&#39;&quot;hf.Registrar.Roles=peer,user,client&quot;,&quot;hf.AffiliationMgr=true&quot;,&quot;hf.Revoker=true&quot;&#39;</span>
+fabric-ca-client register --id.type client --id.name budget-admin --id.secret pw --id.affiliation budget --id.attrs <span class="nv">$ATTRIBUTES</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Register <code class="docutils literal notranslate"><span class="pre">orderer-admin</span></code> for encorporating orders into network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ATTRIBUTES</span><span class="o">=</span><span class="s1">&#39;&quot;hf.Registrar.Roles=orderer&quot;&#39;</span>
+fabric-ca-client register --id.type client --id.name orderer-admin --id.secret pw --id.affiliation orderer --id.attrs <span class="nv">$ATTRIBUTES</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>To list and verify the user identities on the network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fabric-ca-client identity list
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">acme</span></code>, <code class="docutils literal notranslate"><span class="pre">budget</span></code> and <code class="docutils literal notranslate"><span class="pre">orderer</span></code> directories from <strong>setup/config/multi-org-ca/yaml.0/</strong> to <strong>ca-client/</strong></p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create directories to store organisation&#39;s admin crypto material</span>
+mkdir -p ca-client/acme/admin/ ca-client/budget/admin/ ca-client/orderer/admin/
+
+<span class="c1"># Copy config files</span>
+rsync -avPh setup/config/multi-org-ca/yaml.0/acme/* ca-client/acme/admin/
+rsync -avPh setup/config/multi-org-ca/yaml.0/budget/* ca-client/budget/admin/
+rsync -avPh setup/config/multi-org-ca/yaml.0/orderer/* ca-client/orderer/admin/
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change <strong>fabric-ca-server</strong> <code class="docutils literal notranslate"><span class="pre">url</span></code> to Host ip address in fabric-ca-client-config.yaml copied above using rsync command</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Generate crypto material for the admin users register above</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For **acme-admin** user</span>
+docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-v <span class="nv">$PWD</span>/ca-client/acme/admin:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client  enroll -u http://acme-admin:pw@192.168.0.230:7054
+
+<span class="c1"># For **budget-admin** user</span>
+docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-v <span class="nv">$PWD</span>/ca-client/budget/admin:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client enroll -u http://budget-admin:pw@192.168.0.230:7054
+
+<span class="c1"># For **orderer-admin** user</span>
+docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-v <span class="nv">$PWD</span>/ca-client/orderer/admin:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client enroll -u http://orderer-admin:pw@192.168.0.230:7054
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy admincerts of caserver admin to signcerts of various registered organization’s admin</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i in acme budget orderer
+<span class="k">do</span>
+mkdir -p <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/admin/msp/admincerts
+cp -r <span class="nv">$PROJECT_ROOT</span>/ca-client/caserver/admin/msp/signcerts/*  <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="nv">$i</span>/admin/msp/admincerts/
+<span class="k">done</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create msp folder inside each organisation folder and create <cite>cacerts</cite>, <cite>admincerts</cite> and <cite>keystore</cite> inside each organisation’s msp folder</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i in acme budget orderer
+<span class="k">do</span>
+mkdir -p <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp
+mkdir -p <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp/cacerts <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp/admincerts <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp/keystore
+<span class="k">done</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy org/admin/msp/signcerts to org/msp/admincerts folder and ca-server/ca-cert.pem to  org/msp/cacerts folder</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i in acme budget orderer
+<span class="k">do</span>
+cp -r <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/admin/msp/signcerts/* <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp/admincerts/
+cp -r <span class="nv">$PROJECT_ROOT</span>/ca-server/ca-cert.pem  <span class="nv">$PROJECT_ROOT</span>/ca-client/<span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>/msp/cacerts/
+<span class="k">done</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="setup-orderer">
+<h2>Setup orderer<a class="headerlink" href="#setup-orderer" title="Permalink to this headline">¶</a></h2>
+<p>To setup orderer we need to create genesis block</p>
+<ul>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">setup/config/multi-org-ca/yaml.0/configtx.yaml</span></code> to $PROJECT_ROOT</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp -r setup/config/multi-org-ca/yaml.0/configtx.yaml <span class="nv">$PROJECT_ROOT</span>/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Edit <code class="docutils literal notranslate"><span class="pre">configtx.yaml</span></code> and verify <code class="docutils literal notranslate"><span class="pre">msp</span></code> directories location</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span><span class="nv">$PROJECT_ROOT</span>
+configtxgen -profile AirlineOrdererGenesis -outputBlock ./airline-genesis.block -channelID ordererchannel
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Register orderer identity to CA Server</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fabric-ca-client register --id.type orderer --id.name orderer --id.secret pw --id.affiliation orderer
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Generate crypto material for orderer identity</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>/ca-client/orderer/orderer:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client enroll -u http://orderer:pw@192.168.0.230:7054
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">admincerts</span></code> folder inside orderer/msp folder</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ca-client/orderer/orderer/msp/admincerts
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy orderer/admin signcerts to orderer/admincerts folder</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp <span class="nv">$PWD</span>/ca-client/orderer/admin/msp/signcerts/* <span class="nv">$PWD</span>/ca-client/orderer/orderer/msp/admincerts/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy orderer.yaml from <strong>setup/config/multi-org-ca/yaml.0/orderer.yaml</strong> to PROJECT_ROOT</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp setup/config/multi-org-ca/yaml.0/orderer.yaml <span class="nv">$PROJECT_ROOT</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Edit <strong>orderer.yaml</strong> and start orderer container instance</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d --name hlf-orderer-acme <span class="se">\</span>
+--network host <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/ <span class="se">\</span>
+-e <span class="nv">ORDERER_FILELEDGER_LOCATION</span><span class="o">=</span>/etc/hyperledger/ca-client/orderer/ledger <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/ <span class="se">\</span>
+hyperledger/fabric-orderer
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="create-channel">
+<h2>Create Channel<a class="headerlink" href="#create-channel" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Copy configtx.yaml file from setup/ to PROJECT_ROOT</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp setup/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create a channel transaction file using <strong>configtxgen</strong> utility.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/ <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/ <span class="se">\</span>
+hyperledger/fabric-tools <span class="se">\</span>
+configtxgen -profile AirlineChannel -outputCreateChannelTx /etc/hyperledger/airline-channel.tx -channelID airlinechannel
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy core.yaml from setup/peer to PROJECT_ROOT</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp setup/peer/core.yaml <span class="nv">$PROJECT_ROOT</span>/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Sign Channel transaction file using <code class="docutils literal notranslate"><span class="pre">acme-admin</span></code> user identity</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+-e <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span>/etc/hyperledger/ca-client/acme/admin/msp <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/ <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/ <span class="se">\</span>
+hyperledger/fabric-tools <span class="se">\</span>
+peer channel signconfigtx -f /etc/hyperledger/airline-channel.tx
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Submit the transaction to network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+-e <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span>/etc/hyperledger/ca-client/acme/admin/msp <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/ <span class="se">\</span>
+-e <span class="nv">FABRIC_LOGGING_SPEC</span><span class="o">=</span>DEBUG <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/ <span class="se">\</span>
+hyperledger/fabric-tools <span class="se">\</span>
+peer channel create -o <span class="m">192</span>.168.0.230:7050 -c airlinechannel -f /etc/hyperledger/airline-channel.tx
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="add-organisation-peer">
+<h2>Add Organisation Peer<a class="headerlink" href="#add-organisation-peer" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Register peer1 identity using acme-admin identity</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>/ca-client/acme/admin:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client register --id.type peer --id.name peer1 --id.secret pw --id.affiliation acme
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Enroll or generate crypto material for peer 1</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm <span class="se">\</span>
+--name hlf-client <span class="se">\</span>
+-e <span class="nv">FABRIC_CA_CLIENT_HOME</span><span class="o">=</span>/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+-e <span class="nv">FABRIC_LOGGING_SPEC</span><span class="o">=</span>DEBUG <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>/ca-client/acme/peer1:/etc/hyperledger/fabric-ca-client <span class="se">\</span>
+hyperledger/fabric-ca <span class="se">\</span>
+fabric-ca-client enroll -u http://peer1:pw@192.168.0.230:7054
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy <cite>acme/admin/signcerts</cite> to <cite>acme/peer1/admincerts</cite></p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ca-client/acme/peer1/msp/admincerts
+cp -r ca-client/acme/admin/msp/signcerts/* ca-client/acme/peer1/msp/admincerts/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Start peer instance</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run -d <span class="se">\</span>
+--name hlf-peer1 <span class="se">\</span>
+--network host <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/fabric/ <span class="se">\</span>
+-e <span class="nv">CORE_PEER_FILESYSTEMPATH</span><span class="o">=</span>/etc/hyperledger/fabric/ca-client/acme/peer1/ledger <span class="se">\</span>
+-e <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span>/etc/hyperledger/fabric/ca-client/acme/peer1/msp <span class="se">\</span>
+-e <span class="nv">FABRIC_LOGGING_SPEC</span><span class="o">=</span>DEBUG <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/fabric <span class="se">\</span>
+hyperledger/fabric-peer
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Fetch the 0th block (Genesis Block) from network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker run --rm -it <span class="se">\</span>
+-e <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span>/etc/hyperledger/ca-client/acme/admin/msp <span class="se">\</span>
+-e <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span>/etc/hyperledger/ <span class="se">\</span>
+-v <span class="nv">$PROJECT_ROOT</span>:/etc/hyperledger/ <span class="se">\</span>
+hyperledger/fabric-tools <span class="se">\</span>
+peer channel fetch <span class="m">0</span> /etc/hyperledger/airline-channel.block -o <span class="m">192</span>.168.0.230:7050 -c airlinechannel
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Join peer1 to Airline Channel</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>Bash into peer container</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker <span class="nb">exec</span> -it hlf-peer1 sh
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p>Join peer1 to Airline channel</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span>/etc/hyperledger/fabric/ca-client/acme/admin/msp
+peer channel join -o <span class="m">192</span>.168.0.230:7050 -b /etc/hyperledger/fabric/airline-channel.block
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check if peer has joined channel</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer channel list
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../testNetwork/index.html" title="previous page">Setup HLF Test Network</a>
+    <a class='right-next' id="next-link" href="../../cardano/index.html" title="next page">Cardano Setup</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+     <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, dev.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>

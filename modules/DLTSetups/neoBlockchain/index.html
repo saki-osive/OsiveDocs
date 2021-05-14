@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Blockchain Setup &#8212; Blockchain Docs 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/my_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/s4defs-roles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Private Ethereum Setup" href="../ethereumPrivate/index.html" />
+    <link rel="prev" title="Multiple Blockchain Infra Setup" href="../index.html" />
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+</script>
+
+<!-- VUE -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+
+<!-- Mermaid Js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<!-- Vuetify -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+<!-- Timeline -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-cute-timeline@1.2.8/dist/vue-cute-timeline.min.js"></script> -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../index.html">
+    
+      <p class="title">Blockchain Docs</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../homeLabSetups/index.html">Project-1 : Devops</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Project-2 : Blockchain Setups</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../design-dev/index.html">Project-3 : Solution design and Development</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../greens/index.html">Project-4 : Team Project : Greens</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="active">
+                    <a href=""> Neo Blockchain</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../ethereumPrivate/index.html"> Ethereum Private Network Setup</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../hyperledgerBesu/index.html"> Hyperledger Besu</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../Polkadot/index.html"> Polkadot Setup</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../hyperledgerFabric/index.html"> Hyperledger Fabric</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../cardano/index.html"> Cardano</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#workflow" class="nav-link">Workflow</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#prerequisite" class="nav-link">Prerequisite</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#create-a-new-virtual-machine-in-virtualbox" class="nav-link">Create a new Virtual Machine in Virtualbox</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#install-windows-in-virtualmachine" class="nav-link">Install Windows in VirtualMachine</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#install-firefox-browser" class="nav-link">Install firefox Browser</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#download-and-setup-visual-studio" class="nav-link">Download and setup Visual Studio</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#build-neo-c-codebase" class="nav-link">Build Neo C# Codebase</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="neo-blockchain-setup">
+<h1>Neo Blockchain Setup<a class="headerlink" href="#neo-blockchain-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/neo_workflow.png" src="../../../_images/neo_workflow.png" />
+</div>
+<div class="section" id="prerequisite">
+<h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Download Virtualbox</p></li>
+</ol>
+<p><a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p>
+<ol class="arabic simple" start="2">
+<li><p>Download Windows Server Essentials 2019 .iso file.</p></li>
+</ol>
+<p><a class="reference external" href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019-essentials">https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019-essentials</a></p>
+<p>Product key:
+NJ3X8-YTJRF-3R9J9-D78MF-4YBP4</p>
+<img alt="../../../_images/product_keys.png" src="../../../_images/product_keys.png" />
+<ol class="arabic simple" start="3">
+<li><p>Neo Blockchain Codebase</p></li>
+</ol>
+<p><a class="reference external" href="https://github.com/neo-project/neo">https://github.com/neo-project/neo</a></p>
+</div>
+<div class="section" id="create-a-new-virtual-machine-in-virtualbox">
+<h2>Create a new Virtual Machine in Virtualbox<a class="headerlink" href="#create-a-new-virtual-machine-in-virtualbox" title="Permalink to this headline">¶</a></h2>
+<p>Click on New virtual machine button.</p>
+<img alt="../../../_images/00_vm.png" src="../../../_images/00_vm.png" />
+<p>Select the below options</p>
+<div class="line-block">
+<div class="line">Name: <code class="docutils literal notranslate"><span class="pre">neoBlockchain</span></code></div>
+<div class="line">Type: <code class="docutils literal notranslate"><span class="pre">Microsoft</span> <span class="pre">Windows</span></code></div>
+<div class="line">Version: <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">2019</span> <span class="pre">(64</span> <span class="pre">bit)</span></code></div>
+</div>
+<img alt="../../../_images/01_vm.png" src="../../../_images/01_vm.png" />
+<p>Allocate 24 GB Ram to Virtual Machine</p>
+<img alt="../../../_images/02_vm.png" src="../../../_images/02_vm.png" />
+<p>Create a virtual hard disk for virtual machine, select Dynamically allocated.
+Select Size of virtual machine as 200GB</p>
+<img alt="../../../_images/05_vm.png" src="../../../_images/05_vm.png" />
+<img alt="../../../_images/06_vm.png" src="../../../_images/06_vm.png" />
+<img alt="../../../_images/07_vm.png" src="../../../_images/07_vm.png" />
+<img alt="../../../_images/08_vm.png" src="../../../_images/08_vm.png" />
+<p>Open Setting of the newly created virtual machine.</p>
+<img alt="../../../_images/08-1_vm.png" src="../../../_images/08-1_vm.png" />
+<p>Select Storage Menu, choose disk file.
+Select the windows-server.iso file.</p>
+<img alt="../../../_images/08-2_vm.png" src="../../../_images/08-2_vm.png" />
+<img alt="../../../_images/10_vm.png" src="../../../_images/10_vm.png" />
+<img alt="../../../_images/11_vm.png" src="../../../_images/11_vm.png" />
+<p>Select Network Menu, and select Bridged Adapter as shown below.</p>
+<img alt="../../../_images/12_vm.png" src="../../../_images/12_vm.png" />
+<p>Start the Virtual machine</p>
+<img alt="../../../_images/18_vm.png" src="../../../_images/18_vm.png" />
+</div>
+<div class="section" id="install-windows-in-virtualmachine">
+<h2>Install Windows in VirtualMachine<a class="headerlink" href="#install-windows-in-virtualmachine" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/vm_install_01.png" src="../../../_images/vm_install_01.png" />
+<img alt="../../../_images/vm_install_02.png" src="../../../_images/vm_install_02.png" />
+<img alt="../../../_images/vm_install_03.png" src="../../../_images/vm_install_03.png" />
+<img alt="../../../_images/vm_install_04.png" src="../../../_images/vm_install_04.png" />
+<p>Enter Product Key <code class="docutils literal notranslate"><span class="pre">NJ3X8-YTJRF-3R9J9-D78MF-4YBP4</span></code></p>
+<img alt="../../../_images/vm_install_05.png" src="../../../_images/vm_install_05.png" />
+<img alt="../../../_images/vm_install_06.png" src="../../../_images/vm_install_06.png" />
+<img alt="../../../_images/vm_install_07.png" src="../../../_images/vm_install_07.png" />
+<img alt="../../../_images/vm_install_08.png" src="../../../_images/vm_install_08.png" />
+<img alt="../../../_images/vm_install_09.png" src="../../../_images/vm_install_09.png" />
+<img alt="../../../_images/vm_install_010.png" src="../../../_images/vm_install_010.png" />
+<img alt="../../../_images/vm_install_011.png" src="../../../_images/vm_install_011.png" />
+<img alt="../../../_images/vm_install_012.png" src="../../../_images/vm_install_012.png" />
+<img alt="../../../_images/vm_install_013.png" src="../../../_images/vm_install_013.png" />
+<img alt="../../../_images/vm_install_014.png" src="../../../_images/vm_install_014.png" />
+<img alt="../../../_images/vm_install_015.png" src="../../../_images/vm_install_015.png" />
+<img alt="../../../_images/vm_install_016.png" src="../../../_images/vm_install_016.png" />
+<img alt="../../../_images/vm_install_017.png" src="../../../_images/vm_install_017.png" />
+<img alt="../../../_images/vm_install_018.png" src="../../../_images/vm_install_018.png" />
+<img alt="../../../_images/vm_install_019.png" src="../../../_images/vm_install_019.png" />
+</div>
+<div class="section" id="install-firefox-browser">
+<h2>Install firefox Browser<a class="headerlink" href="#install-firefox-browser" title="Permalink to this headline">¶</a></h2>
+<p>Open Internet Explorer and Download mozzila browser.</p>
+<p><a class="reference external" href="https://www.mozilla.org/en-US/firefox/all/#product-desktop-release">https://www.mozilla.org/en-US/firefox/all/#product-desktop-release</a></p>
+<img alt="../../../_images/download_firefox.png" src="../../../_images/download_firefox.png" />
+<img alt="../../../_images/install_firefox.png" src="../../../_images/install_firefox.png" />
+<img alt="../../../_images/open_firefox.png" src="../../../_images/open_firefox.png" />
+</div>
+<div class="section" id="download-and-setup-visual-studio">
+<h2>Download and setup Visual Studio<a class="headerlink" href="#download-and-setup-visual-studio" title="Permalink to this headline">¶</a></h2>
+<p>Open URL in firefox and download the community version.</p>
+<p><a class="reference external" href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a></p>
+<img alt="../../../_images/dnd_1.png" src="../../../_images/dnd_1.png" />
+<img alt="../../../_images/dnd_2.png" src="../../../_images/dnd_2.png" />
+<img alt="../../../_images/dnd_4.png" src="../../../_images/dnd_4.png" />
+</div>
+<div class="section" id="build-neo-c-codebase">
+<h2>Build Neo C# Codebase<a class="headerlink" href="#build-neo-c-codebase" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../_images/dnd_5.png" src="../../../_images/dnd_5.png" />
+<p>Enter Neo repository URL to clone.</p>
+<p><a class="reference external" href="https://github.com/neo-project/neo.git">https://github.com/neo-project/neo.git</a></p>
+<img alt="../../../_images/dnd_6.png" src="../../../_images/dnd_6.png" />
+<p>Right Click on Project name and Select Build option.</p>
+<img alt="../../../_images/dnd_7.png" src="../../../_images/dnd_7.png" />
+<img alt="../../../_images/dnd_8.png" src="../../../_images/dnd_8.png" />
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Multiple Blockchain Infra Setup</a>
+    <a class='right-next' id="next-link" href="../ethereumPrivate/index.html" title="next page">Private Ethereum Setup</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+     <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, dev.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>

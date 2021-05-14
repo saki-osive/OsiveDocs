@@ -1,0 +1,1748 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup HLF Test Network &#8212; Blockchain Docs 1.0 documentation</title>
+    
+  <link rel="stylesheet" href="../../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/my_theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/css/s4defs-roles.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/custom.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Hyperledger Fabric from Scratch" href="../rawSetup/index.html" />
+    <link rel="prev" title="Constructs" href="../constructs/index.html" />
+
+<!-- Datatable -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+</script>
+
+<!-- VUE -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.min.js"></script>
+
+<!-- Mermaid Js -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<!-- Vuetify -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet"> -->
+
+<!-- Timeline -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue-cute-timeline@1.2.8/dist/vue-cute-timeline.min.js"></script> -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../../../../index.html">
+    
+      <p class="title">Blockchain Docs</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../homeLabSetups/index.html">Project-1 : Devops</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../../index.html">Project-2 : Blockchain Setups</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../design-dev/index.html">Project-3 : Solution design and Development</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../../../greens/index.html">Project-4 : Team Project : Greens</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+            
+                <li class="">
+                    <a href="../../neoBlockchain/index.html"> Neo Blockchain</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../ethereumPrivate/index.html"> Ethereum Private Network Setup</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../hyperledgerBesu/index.html"> Hyperledger Besu</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../Polkadot/index.html"> Polkadot Setup</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../index.html"> Hyperledger Fabric</a>
+                    <ul>
+                    
+                        <li class="">
+                            <a href="../constructs/index.html">Constructs</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="">Setup Test Network</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="../rawSetup/index.html">Setup from Scratch Guide</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../../cardano/index.html"> Cardano</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#test-network-overview" class="nav-link">Test Network Overview</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#prerequisites-setup" class="nav-link">Prerequisites Setup</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#vagrant" class="nav-link">Vagrant</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#getting-started" class="nav-link">Getting Started</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#stepsflow-diagram" class="nav-link">Stepsflow Diagram</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#setup-platform" class="nav-link">Setup platform</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#starting-test-network" class="nav-link">Starting Test Network</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#deploy-sample-chaincode" class="nav-link">Deploy sample chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#destroy-network" class="nav-link">Destroy network</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#deploy-chaincode-in-development" class="nav-link">Deploy chaincode in Development</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#chaincode-lifecycle-flow" class="nav-link">Chaincode Lifecycle Flow</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#prepare-enviroment-as-org1" class="nav-link">Prepare Enviroment as Org1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#package-chaincode" class="nav-link">Package Chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#install-chaincode" class="nav-link">Install Chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#approve-chaincode" class="nav-link">Approve chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#commit-chaincode" class="nav-link">Commit chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#verify-chaincode-commit" class="nav-link">Verify Chaincode Commit</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#invoke-chaincode" class="nav-link">Invoke Chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#upgrade-chaincode" class="nav-link">Upgrade Chaincode</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#chaincode-to-store-and-retrieve-json-data" class="nav-link">Chaincode to store and retrieve JSON data</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#create-a-local-wallet-and-use-the-fabric-sdk-to-call-your-chaincode" class="nav-link">Create a local wallet and use the Fabric SDK to call your chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#add-a-second-and-third-peer-node-to-your-network-each-with-a-different-organization" class="nav-link">Add a second and third peer node to your network each with a different organization.</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#join-the-new-peers-to-the-channel-and-endorse-them-for-the-chaincode" class="nav-link">Join the new peers to the channel and endorse them for the chaincode</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#json-data-to-couchdb-and-query-the-data" class="nav-link">JSON data to CouchDB and query the data.</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#create-chaincode-and-web-dapp-to-represent-an-enterprise-workflow" class="nav-link">Create chaincode and web dApp to represent an enterprise workflow</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="setup-hlf-test-network">
+<h1>Setup HLF Test Network<a class="headerlink" href="#setup-hlf-test-network" title="Permalink to this headline">¶</a></h1>
+<p>The test network is provided for learning about Fabric by running nodes on your local machine. Developers can use the network to test their smart contracts and applications. The network is meant to be used only as a tool for education and testing and not as a model for how to set up a network.</p>
+<div class="section" id="test-network-overview">
+<h2>Test Network Overview<a class="headerlink" href="#test-network-overview" title="Permalink to this headline">¶</a></h2>
+<img alt="../../../../_images/testNetworkOverview.png" src="../../../../_images/testNetworkOverview.png" />
+</div>
+<div class="section" id="prerequisites-setup">
+<h2>Prerequisites Setup<a class="headerlink" href="#prerequisites-setup" title="Permalink to this headline">¶</a></h2>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> Prerequisites setup steps for users not using <code class="docutils literal notranslate"><span class="pre">Vagrant</span></code><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<ul>
+<li><p class="card-text"><code class="docutils literal notranslate"><span class="pre">git,</span> <span class="pre">curl</span></code> Install</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y install git curl
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="card-text">Install docker on Ubuntu 18.04+</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt -y install docker.io
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="card-text">Enable docker service to autostart docker at startup</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl start docker
+sudo systemctl <span class="nb">enable</span> docker
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="card-text">Add user to docker group for passwordless execution of docker command</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo usermod -aG docker <span class="k">$(</span>whoami<span class="k">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="card-text">Install Docker compose</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-<span class="k">$(</span>uname -s<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</details><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the prerequisites are tackeld in the <code class="docutils literal notranslate"><span class="pre">vagrant</span> <span class="pre">file</span></code></p>
+</div>
+<div class="section" id="vagrant">
+<h3>Vagrant<a class="headerlink" href="#vagrant" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install Virtualbox from <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">here</a></p></li>
+<li><p>Install Vagrant from <a class="reference external" href="https://www.vagrantup.com/downloads">here</a></p></li>
+<li><p>Start Vagrant VM using below script</p>
+<blockquote>
+<div><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> <code class="docutils literal notranslate"><span class="pre">Vagrantfile</span></code> script<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="card-text">Change ip in line <a href="#id2"><span class="problematic" id="id3">``</span></a>config.vm.network “public_network”, ip: “192.168.0.235” <a href="#id4"><span class="problematic" id="id5">``</span></a>according your network enviroment.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- mode: ruby -*-</span>
+<span class="c1"># vi: set ft=ruby :</span>
+
+<span class="c1"># All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure</span>
+<span class="c1"># configures the configuration version (we support older styles for</span>
+<span class="c1"># backwards compatibility). Please don&#39;t change it unless you know what</span>
+<span class="c1"># you&#39;re doing.</span>
+Vagrant.configure<span class="o">(</span><span class="s2">&quot;2&quot;</span><span class="o">)</span> <span class="k">do</span> <span class="p">|</span>config<span class="p">|</span>
+  <span class="c1"># The most common configuration options are documented and commented below.</span>
+  <span class="c1"># For a complete reference, please see the online documentation at</span>
+  <span class="c1"># https://docs.vagrantup.com.</span>
+
+  <span class="c1"># Every Vagrant development environment requires a box. You can search for</span>
+  <span class="c1"># boxes at https://vagrantcloud.com/search.</span>
+  config.vm.box <span class="o">=</span> <span class="s2">&quot;bento/ubuntu-20.04&quot;</span>
+
+  config.vm.network <span class="s2">&quot;public_network&quot;</span>, ip: <span class="s2">&quot;192.168.0.235&quot;</span>
+
+  <span class="c1"># Share an additional folder to the guest VM. The first argument is</span>
+  <span class="c1"># the path on the host to the actual folder. The second argument is</span>
+  <span class="c1"># the path on the guest to mount the folder. And the optional third</span>
+  <span class="c1"># argument is a set of non-required options.</span>
+  <span class="c1"># config.vm.synced_folder &quot;../data&quot;, &quot;/vagrant_data&quot;</span>
+
+  config.vm.provider <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="p">|</span>vb<span class="p">|</span>
+  <span class="c1">#   # Display the VirtualBox GUI when booting the machine</span>
+  <span class="c1">#   vb.gui = true</span>
+  <span class="c1">#</span>
+  <span class="c1">#   # Customize the amount of memory on the VM:</span>
+    vb.cpus <span class="o">=</span> <span class="m">4</span>
+    vb.memory <span class="o">=</span> <span class="s2">&quot;16384&quot;</span>
+  end
+  <span class="c1">#</span>
+  <span class="c1"># View the documentation for the provider you are using for more</span>
+  <span class="c1"># information on available options.</span>
+
+  <span class="c1"># Enable provisioning with a shell script. Additional provisioners such as</span>
+  <span class="c1"># Ansible, Chef, Docker, Puppet and Salt are also available. Please see the</span>
+  <span class="c1"># documentation for more information about their specific syntax and use.</span>
+  <span class="c1"># config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL</span>
+
+  <span class="c1"># SHELL</span>
+  config.vm.provision :shell, :path<span class="o">=</span>&gt;<span class="s2">&quot;script.sh&quot;</span>
+end
+</pre></div>
+</div>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> <code class="docutils literal notranslate"><span class="pre">script.sh</span></code> for <strong>everyone</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt upgrade -y
+
+<span class="c1"># Install docker</span>
+sudo apt install -y docker.io git curl
+sudo usermod -aG docker vagrant
+sudo service <span class="nb">enable</span> docker
+
+<span class="c1"># Install Docker compose</span>
+sudo curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-<span class="k">$(</span>uname -s<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+</pre></div>
+</div>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> <code class="docutils literal notranslate"><span class="pre">script.sh</span></code> with docker registry<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update
+sudo apt -y upgrade
+
+<span class="c1"># Install docker</span>
+sudo apt install -y docker.io git curl
+sudo usermod -aG docker vagrant
+sudo service <span class="nb">enable</span> docker
+
+<span class="c1"># seting docker registry</span>
+sudo cat &gt; /etc/docker/daemon.json <span class="s">&lt;&lt;EOF</span>
+<span class="s">{</span>
+<span class="s">  &quot;registry-mirrors&quot;: [&quot;https://registry.osive.com&quot;],</span>
+<span class="s">  &quot;dns&quot;: [&quot;192.168.0.5&quot;]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+
+sudo service docker restart
+
+<span class="c1"># Install Docker compose</span>
+sudo curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-<span class="k">$(</span>uname -s<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+</pre></div>
+</div>
+</div>
+</details></div></blockquote>
+</li>
+<li><p>Start Vagrant VM</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant up
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>SSH into Vagrant VM</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vagrant ssh
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stepsflow-diagram">
+<h3>Stepsflow Diagram<a class="headerlink" href="#stepsflow-diagram" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../../_images/testNetworkSteps.png" src="../../../../_images/testNetworkSteps.png" />
+</div>
+<div class="section" id="setup-platform">
+<h3>Setup platform<a class="headerlink" href="#setup-platform" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Download and install <code class="docutils literal notranslate"><span class="pre">fabric-samples</span></code>, binaries and Docker images</p>
+<blockquote>
+<div><p>curl -sSL <a class="reference external" href="https://bit.ly/2ysbOFE">https://bit.ly/2ysbOFE</a> | bash -s – &lt;fabric_version&gt; &lt;fabric-ca_version&gt;</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -sSL https://bit.ly/2ysbOFE <span class="p">|</span> bash -s -- <span class="m">2</span>.2.2 <span class="m">1</span>.4.9
+</pre></div>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> Hyperledger Fabric Setup script used in above command.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p class="card-text">For reference purposes only, not to be copied and used.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright IBM Corp. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1">#</span>
+
+<span class="c1"># if version not passed in, default to latest released version</span>
+<span class="nv">VERSION</span><span class="o">=</span><span class="m">2</span>.3.1
+<span class="c1"># if ca version not passed in, default to latest released version</span>
+<span class="nv">CA_VERSION</span><span class="o">=</span><span class="m">1</span>.4.9
+<span class="nv">ARCH</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s<span class="p">|</span>tr <span class="s1">&#39;[:upper:]&#39;</span> <span class="s1">&#39;[:lower:]&#39;</span><span class="p">|</span>sed <span class="s1">&#39;s/mingw64_nt.*/windows/&#39;</span><span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m <span class="p">|</span> sed <span class="s1">&#39;s/x86_64/amd64/g&#39;</span><span class="k">)</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">MARCH</span><span class="o">=</span><span class="k">$(</span>uname -m<span class="k">)</span>
+
+printHelp<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: bootstrap.sh [version [ca_version]] [options]&quot;</span>
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> <span class="s2">&quot;options:&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;-h : this help&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;-d : bypass docker image download&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;-s : bypass fabric-samples repo clone&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;-b : bypass download of platform-specific binaries&quot;</span>
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> <span class="s2">&quot;e.g. bootstrap.sh 2.3.1 1.4.9 -s&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;will download docker images and binaries for Fabric v2.3.1 and Fabric CA v1.4.9&quot;</span>
+<span class="o">}</span>
+
+<span class="c1"># dockerPull() pulls docker images from fabric and chaincode repositories</span>
+<span class="c1"># note, if a docker image doesn&#39;t exist for a requested release, it will simply</span>
+<span class="c1"># be skipped, since this script doesn&#39;t terminate upon errors.</span>
+
+dockerPull<span class="o">()</span> <span class="o">{</span>
+    <span class="c1">#three_digit_image_tag is passed in, e.g. &quot;1.4.7&quot;</span>
+    <span class="nv">three_digit_image_tag</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nb">shift</span>
+    <span class="c1">#two_digit_image_tag is derived, e.g. &quot;1.4&quot;, especially useful as a local tag for two digit references to most recent baseos, ccenv, javaenv, nodeenv patch releases</span>
+    <span class="nv">two_digit_image_tag</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$three_digit_image_tag</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="s1">&#39;.&#39;</span> -f1,2<span class="k">)</span>
+    <span class="k">while</span> <span class="o">[[</span> <span class="nv">$#</span> -gt <span class="m">0</span> <span class="o">]]</span>
+    <span class="k">do</span>
+        <span class="nv">image_name</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;====&gt; hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$three_digit_image_tag</span><span class="s2">&quot;</span>
+        docker pull <span class="s2">&quot;hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$three_digit_image_tag</span><span class="s2">&quot;</span>
+        docker tag <span class="s2">&quot;hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$three_digit_image_tag</span><span class="s2">&quot;</span> <span class="s2">&quot;hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">&quot;</span>
+        docker tag <span class="s2">&quot;hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$three_digit_image_tag</span><span class="s2">&quot;</span> <span class="s2">&quot;hyperledger/fabric-</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$two_digit_image_tag</span><span class="s2">&quot;</span>
+        <span class="nb">shift</span>
+    <span class="k">done</span>
+<span class="o">}</span>
+
+cloneSamplesRepo<span class="o">()</span> <span class="o">{</span>
+    <span class="c1"># clone (if needed) hyperledger/fabric-samples and checkout corresponding</span>
+    <span class="c1"># version to the binaries and docker images to be downloaded</span>
+    <span class="k">if</span> <span class="o">[</span> -d first-network <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="c1"># if we are in the fabric-samples repo, checkout corresponding version</span>
+        <span class="nb">echo</span> <span class="s2">&quot;==&gt; Already in fabric-samples repo&quot;</span>
+    <span class="k">elif</span> <span class="o">[</span> -d fabric-samples <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="c1"># if fabric-samples repo already cloned and in current directory,</span>
+        <span class="c1"># cd fabric-samples</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; Changing directory to fabric-samples&quot;</span>
+        <span class="nb">cd</span> fabric-samples
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; Cloning hyperledger/fabric-samples repo&quot;</span>
+        git clone -b master https://github.com/hyperledger/fabric-samples.git <span class="o">&amp;&amp;</span> <span class="nb">cd</span> fabric-samples
+    <span class="k">fi</span>
+
+    <span class="k">if</span> <span class="nv">GIT_DIR</span><span class="o">=</span>.git git rev-parse v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span> &gt;/dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; Checking out v</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> of hyperledger/fabric-samples&quot;</span>
+        git checkout -q v<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;fabric-samples v</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2"> does not exist, defaulting master&quot;</span>
+        git checkout -q master
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># This will download the .tar.gz</span>
+download<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">local</span> <span class="nv">BINARY_FILE</span><span class="o">=</span><span class="nv">$1</span>
+    <span class="nb">local</span> <span class="nv">URL</span><span class="o">=</span><span class="nv">$2</span>
+    <span class="nb">echo</span> <span class="s2">&quot;===&gt; Downloading: &quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">URL</span><span class="si">}</span><span class="s2">&quot;</span>
+    curl -L --retry <span class="m">5</span> --retry-delay <span class="m">3</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">URL</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> tar xz <span class="o">||</span> <span class="nv">rc</span><span class="o">=</span><span class="nv">$?</span>
+    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$rc</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;==&gt; There was an error downloading the binary file.&quot;</span>
+        <span class="k">return</span> <span class="m">22</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;==&gt; Done.&quot;</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+pullBinaries<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">echo</span> <span class="s2">&quot;===&gt; Downloading version </span><span class="si">${</span><span class="nv">FABRIC_TAG</span><span class="si">}</span><span class="s2"> platform specific fabric binaries&quot;</span>
+    download <span class="s2">&quot;</span><span class="si">${</span><span class="nv">BINARY_FILE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;https://github.com/hyperledger/fabric/releases/download/v</span><span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">BINARY_FILE</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">22</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span>
+        <span class="nb">echo</span> <span class="s2">&quot;------&gt; </span><span class="si">${</span><span class="nv">FABRIC_TAG</span><span class="si">}</span><span class="s2"> platform specific fabric binary is not available to download &lt;----&quot;</span>
+        <span class="nb">echo</span>
+        <span class="nb">exit</span>
+    <span class="k">fi</span>
+
+    <span class="nb">echo</span> <span class="s2">&quot;===&gt; Downloading version </span><span class="si">${</span><span class="nv">CA_TAG</span><span class="si">}</span><span class="s2"> platform specific fabric-ca-client binary&quot;</span>
+    download <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CA_BINARY_FILE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;https://github.com/hyperledger/fabric-ca/releases/download/v</span><span class="si">${</span><span class="nv">CA_VERSION</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">CA_BINARY_FILE</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">22</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span>
+        <span class="nb">echo</span> <span class="s2">&quot;------&gt; </span><span class="si">${</span><span class="nv">CA_TAG</span><span class="si">}</span><span class="s2"> fabric-ca-client binary is not available to download  (Available from 1.1.0-rc1) &lt;----&quot;</span>
+        <span class="nb">echo</span>
+        <span class="nb">exit</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+pullDockerImages<span class="o">()</span> <span class="o">{</span>
+    <span class="nb">command</span> -v docker &gt;<span class="p">&amp;</span> /dev/null
+    <span class="nv">NODOCKER</span><span class="o">=</span><span class="nv">$?</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">NODOCKER</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">FABRIC_IMAGES</span><span class="o">=(</span>peer orderer ccenv tools<span class="o">)</span>
+        <span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$VERSION</span><span class="s2">&quot;</span> in
+        <span class="m">2</span>.*<span class="o">)</span>
+            <span class="nv">FABRIC_IMAGES</span><span class="o">+=(</span>baseos<span class="o">)</span>
+            <span class="nb">shift</span>
+            <span class="p">;;</span>
+        <span class="k">esac</span>
+        <span class="nb">echo</span> <span class="s2">&quot;FABRIC_IMAGES:&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FABRIC_IMAGES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; Pulling fabric Images&quot;</span>
+        dockerPull <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FABRIC_TAG</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FABRIC_IMAGES</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; Pulling fabric ca Image&quot;</span>
+        <span class="nv">CA_IMAGE</span><span class="o">=(</span>ca<span class="o">)</span>
+        dockerPull <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CA_TAG</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CA_IMAGE</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;===&gt; List out hyperledger docker images&quot;</span>
+        docker images <span class="p">|</span> grep hyperledger
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;=========================================================&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Docker not installed, bypassing download of Fabric images&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot;=========================================================&quot;</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="nv">DOCKER</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">SAMPLES</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">BINARIES</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># Parse commandline args pull out</span>
+<span class="c1"># version and/or ca-version strings first</span>
+<span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">VERSION</span><span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="nb">shift</span>
+    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span>  <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">CA_VERSION</span><span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="nb">shift</span>
+        <span class="k">if</span> <span class="o">[</span> -n  <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nv">THIRDPARTY_IMAGE_VERSION</span><span class="o">=</span><span class="nv">$1</span><span class="p">;</span><span class="nb">shift</span>
+        <span class="k">fi</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># prior to 1.2.0 architecture was determined by uname -m</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$VERSION</span> <span class="o">=</span>~ ^1<span class="se">\.</span><span class="o">[</span><span class="m">0</span>-1<span class="o">]</span><span class="se">\.</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">export</span> <span class="nv">FABRIC_TAG</span><span class="o">=</span><span class="si">${</span><span class="nv">MARCH</span><span class="si">}</span>-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>
+    <span class="nb">export</span> <span class="nv">CA_TAG</span><span class="o">=</span><span class="si">${</span><span class="nv">MARCH</span><span class="si">}</span>-<span class="si">${</span><span class="nv">CA_VERSION</span><span class="si">}</span>
+    <span class="nb">export</span> <span class="nv">THIRDPARTY_TAG</span><span class="o">=</span><span class="si">${</span><span class="nv">MARCH</span><span class="si">}</span>-<span class="si">${</span><span class="nv">THIRDPARTY_IMAGE_VERSION</span><span class="si">}</span>
+<span class="k">else</span>
+    <span class="c1"># starting with 1.2.0, multi-arch images will be default</span>
+    : <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CA_TAG</span><span class="p">:=</span><span class="s2">&quot;</span><span class="nv">$CA_VERSION</span><span class="s2">&quot;</span><span class="si">}</span><span class="s2">&quot;</span>
+    : <span class="s2">&quot;</span><span class="si">${</span><span class="nv">FABRIC_TAG</span><span class="p">:=</span><span class="s2">&quot;</span><span class="nv">$VERSION</span><span class="s2">&quot;</span><span class="si">}</span><span class="s2">&quot;</span>
+    : <span class="s2">&quot;</span><span class="si">${</span><span class="nv">THIRDPARTY_TAG</span><span class="p">:=</span><span class="s2">&quot;</span><span class="nv">$THIRDPARTY_IMAGE_VERSION</span><span class="s2">&quot;</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">fi</span>
+
+<span class="nv">BINARY_FILE</span><span class="o">=</span>hyperledger-fabric-<span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span>-<span class="si">${</span><span class="nv">VERSION</span><span class="si">}</span>.tar.gz
+<span class="nv">CA_BINARY_FILE</span><span class="o">=</span>hyperledger-fabric-ca-<span class="si">${</span><span class="nv">ARCH</span><span class="si">}</span>-<span class="si">${</span><span class="nv">CA_VERSION</span><span class="si">}</span>.tar.gz
+
+<span class="c1"># then parse opts</span>
+<span class="k">while</span> <span class="nb">getopts</span> <span class="s2">&quot;h?dsb&quot;</span> opt<span class="p">;</span> <span class="k">do</span>
+    <span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$opt</span><span class="s2">&quot;</span> in
+        h<span class="p">|</span><span class="se">\?</span><span class="o">)</span>
+            printHelp
+            <span class="nb">exit</span> <span class="m">0</span>
+            <span class="p">;;</span>
+        d<span class="o">)</span>  <span class="nv">DOCKER</span><span class="o">=</span><span class="nb">false</span>
+            <span class="p">;;</span>
+        s<span class="o">)</span>  <span class="nv">SAMPLES</span><span class="o">=</span><span class="nb">false</span>
+            <span class="p">;;</span>
+        b<span class="o">)</span>  <span class="nv">BINARIES</span><span class="o">=</span><span class="nb">false</span>
+            <span class="p">;;</span>
+    <span class="k">esac</span>
+<span class="k">done</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$SAMPLES</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Clone hyperledger/fabric-samples repo&quot;</span>
+    <span class="nb">echo</span>
+    cloneSamplesRepo
+<span class="k">fi</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$BINARIES</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Pull Hyperledger Fabric binaries&quot;</span>
+    <span class="nb">echo</span>
+    pullBinaries
+<span class="k">fi</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$DOCKER</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Pull Hyperledger Fabric docker images&quot;</span>
+    <span class="nb">echo</span>
+    pullDockerImages
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+</details></div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="starting-test-network">
+<h3>Starting Test Network<a class="headerlink" href="#starting-test-network" title="Permalink to this headline">¶</a></h3>
+<img alt="../../../../_images/networkConfig.png" src="../../../../_images/networkConfig.png" />
+<ul>
+<li><p>Navigate to <code class="docutils literal notranslate"><span class="pre">test-network</span></code> directory.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> fabric-samples/test-network
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> Solve <code class="docutils literal notranslate"><span class="pre">_net</span> <span class="pre">nework</span> <span class="pre">not</span> <span class="pre">found</span></code> error<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">COMPOSE_PROJECT_NAME</span><span class="o">=</span>fabric
+</pre></div>
+</div>
+</div>
+</details><ul>
+<li><p>Start the test network with CA containers</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./network.sh up -ca
+</pre></div>
+</div>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header text-info font-weight-bold">
+<span class="fa fa-eye mr-1"></span> network.sh<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright IBM Corp All Rights Reserved</span>
+<span class="c1">#</span>
+<span class="c1"># SPDX-License-Identifier: Apache-2.0</span>
+<span class="c1">#</span>
+
+<span class="c1"># This script brings up a Hyperledger Fabric network for testing smart contracts</span>
+<span class="c1"># and applications. The test network consists of two organizations with one</span>
+<span class="c1"># peer each, and a single node Raft ordering service. Users can also use this</span>
+<span class="c1"># script to create a channel deploy a chaincode on the channel</span>
+<span class="c1">#</span>
+<span class="c1"># prepending $PWD/../bin to PATH to ensure we are picking up the correct binaries</span>
+<span class="c1"># this may be commented out to resolve installed version of tools if desired</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/../bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/configtx
+<span class="nb">export</span> <span class="nv">VERBOSE</span><span class="o">=</span><span class="nb">false</span>
+
+. scripts/utils.sh
+
+<span class="c1"># Obtain CONTAINER_IDS and remove them</span>
+<span class="c1"># TODO Might want to make this optional - could clear other containers</span>
+<span class="c1"># This function is called when you bring a network down</span>
+<span class="k">function</span> clearContainers<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">CONTAINER_IDS</span><span class="o">=</span><span class="k">$(</span>docker ps -a <span class="p">|</span> awk <span class="s1">&#39;($2 ~ /dev-peer.*/) {print $1}&#39;</span><span class="k">)</span>
+  <span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$CONTAINER_IDS</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$CONTAINER_IDS</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    infoln <span class="s2">&quot;No containers available for deletion&quot;</span>
+  <span class="k">else</span>
+    docker rm -f <span class="nv">$CONTAINER_IDS</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># Delete any images that were generated as a part of this setup</span>
+<span class="c1"># specifically the following images are often left behind:</span>
+<span class="c1"># This function is called when you bring the network down</span>
+<span class="k">function</span> removeUnwantedImages<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">DOCKER_IMAGE_IDS</span><span class="o">=</span><span class="k">$(</span>docker images <span class="p">|</span> awk <span class="s1">&#39;($1 ~ /dev-peer.*/) {print $3}&#39;</span><span class="k">)</span>
+  <span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$DOCKER_IMAGE_IDS</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$DOCKER_IMAGE_IDS</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    infoln <span class="s2">&quot;No images available for deletion&quot;</span>
+  <span class="k">else</span>
+    docker rmi -f <span class="nv">$DOCKER_IMAGE_IDS</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># Versions of fabric known not to work with the test network</span>
+<span class="nv">NONWORKING_VERSIONS</span><span class="o">=</span><span class="s2">&quot;^1\.0\. ^1\.1\. ^1\.2\. ^1\.3\. ^1\.4\.&quot;</span>
+
+<span class="c1"># Do some basic sanity checking to make sure that the appropriate versions of fabric</span>
+<span class="c1"># binaries/images are available. In the future, additional checking for the presence</span>
+<span class="c1"># of go or other items could be added.</span>
+<span class="k">function</span> checkPrereqs<span class="o">()</span> <span class="o">{</span>
+  <span class="c1">## Check if your have cloned the peer binaries and configuration files.</span>
+  peer version &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+  <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">||</span> ! -d <span class="s2">&quot;../config&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+    errorln <span class="s2">&quot;Peer binary and configuration files not found..&quot;</span>
+    errorln
+    errorln <span class="s2">&quot;Follow the instructions in the Fabric docs to install the Fabric Binaries:&quot;</span>
+    errorln <span class="s2">&quot;https://hyperledger-fabric.readthedocs.io/en/latest/install.html&quot;</span>
+    <span class="nb">exit</span> <span class="m">1</span>
+  <span class="k">fi</span>
+  <span class="c1"># use the fabric tools container to see if the samples and binaries match your</span>
+  <span class="c1"># docker images</span>
+  <span class="nv">LOCAL_VERSION</span><span class="o">=</span><span class="k">$(</span>peer version <span class="p">|</span> sed -ne <span class="s1">&#39;s/ Version: //p&#39;</span><span class="k">)</span>
+  <span class="nv">DOCKER_IMAGE_VERSION</span><span class="o">=</span><span class="k">$(</span>docker run --rm hyperledger/fabric-tools:<span class="nv">$IMAGETAG</span> peer version <span class="p">|</span> sed -ne <span class="s1">&#39;s/ Version: //p&#39;</span> <span class="p">|</span> head -1<span class="k">)</span>
+
+  infoln <span class="s2">&quot;LOCAL_VERSION=</span><span class="nv">$LOCAL_VERSION</span><span class="s2">&quot;</span>
+  infoln <span class="s2">&quot;DOCKER_IMAGE_VERSION=</span><span class="nv">$DOCKER_IMAGE_VERSION</span><span class="s2">&quot;</span>
+
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$LOCAL_VERSION</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$DOCKER_IMAGE_VERSION</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    warnln <span class="s2">&quot;Local fabric binaries and docker images are out of  sync. This may cause problems.&quot;</span>
+  <span class="k">fi</span>
+
+  <span class="k">for</span> UNSUPPORTED_VERSION in <span class="nv">$NONWORKING_VERSIONS</span><span class="p">;</span> <span class="k">do</span>
+    infoln <span class="s2">&quot;</span><span class="nv">$LOCAL_VERSION</span><span class="s2">&quot;</span> <span class="p">|</span> grep -q <span class="nv">$UNSUPPORTED_VERSION</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;Local Fabric binary version of </span><span class="nv">$LOCAL_VERSION</span><span class="s2"> does not match the versions supported by the test network.&quot;</span>
+    <span class="k">fi</span>
+
+    infoln <span class="s2">&quot;</span><span class="nv">$DOCKER_IMAGE_VERSION</span><span class="s2">&quot;</span> <span class="p">|</span> grep -q <span class="nv">$UNSUPPORTED_VERSION</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -eq <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;Fabric Docker image version of </span><span class="nv">$DOCKER_IMAGE_VERSION</span><span class="s2"> does not match the versions supported by the test network.&quot;</span>
+    <span class="k">fi</span>
+  <span class="k">done</span>
+
+  <span class="c1">## Check for fabric-ca</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$CRYPTO</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Certificate Authorities&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+
+    fabric-ca-client version &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      errorln <span class="s2">&quot;fabric-ca-client binary not found..&quot;</span>
+      errorln
+      errorln <span class="s2">&quot;Follow the instructions in the Fabric docs to install the Fabric Binaries:&quot;</span>
+      errorln <span class="s2">&quot;https://hyperledger-fabric.readthedocs.io/en/latest/install.html&quot;</span>
+      <span class="nb">exit</span> <span class="m">1</span>
+    <span class="k">fi</span>
+    <span class="nv">CA_LOCAL_VERSION</span><span class="o">=</span><span class="k">$(</span>fabric-ca-client version <span class="p">|</span> sed -ne <span class="s1">&#39;s/ Version: //p&#39;</span><span class="k">)</span>
+    <span class="nv">CA_DOCKER_IMAGE_VERSION</span><span class="o">=</span><span class="k">$(</span>docker run --rm hyperledger/fabric-ca:<span class="nv">$CA_IMAGETAG</span> fabric-ca-client version <span class="p">|</span> sed -ne <span class="s1">&#39;s/ Version: //p&#39;</span> <span class="p">|</span> head -1<span class="k">)</span>
+    infoln <span class="s2">&quot;CA_LOCAL_VERSION=</span><span class="nv">$CA_LOCAL_VERSION</span><span class="s2">&quot;</span>
+    infoln <span class="s2">&quot;CA_DOCKER_IMAGE_VERSION=</span><span class="nv">$CA_DOCKER_IMAGE_VERSION</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$CA_LOCAL_VERSION</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;</span><span class="nv">$CA_DOCKER_IMAGE_VERSION</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      warnln <span class="s2">&quot;Local fabric-ca binaries and docker images are out of sync. This may cause problems.&quot;</span>
+    <span class="k">fi</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># Before you can bring up a network, each organization needs to generate the crypto</span>
+<span class="c1"># material that will define that organization on the network. Because Hyperledger</span>
+<span class="c1"># Fabric is a permissioned blockchain, each node and user on the network needs to</span>
+<span class="c1"># use certificates and keys to sign and verify its actions. In addition, each user</span>
+<span class="c1"># needs to belong to an organization that is recognized as a member of the network.</span>
+<span class="c1"># You can use the Cryptogen tool or Fabric CAs to generate the organization crypto</span>
+<span class="c1"># material.</span>
+
+<span class="c1"># By default, the sample network uses cryptogen. Cryptogen is a tool that is</span>
+<span class="c1"># meant for development and testing that can quickly create the certificates and keys</span>
+<span class="c1"># that can be consumed by a Fabric network. The cryptogen tool consumes a series</span>
+<span class="c1"># of configuration files for each organization in the &quot;organizations/cryptogen&quot;</span>
+<span class="c1"># directory. Cryptogen uses the files to generate the crypto  material for each</span>
+<span class="c1"># org in the &quot;organizations&quot; directory.</span>
+
+<span class="c1"># You can also Fabric CAs to generate the crypto material. CAs sign the certificates</span>
+<span class="c1"># and keys that they generate to create a valid root of trust for each organization.</span>
+<span class="c1"># The script uses Docker Compose to bring up three CAs, one for each peer organization</span>
+<span class="c1"># and the ordering organization. The configuration file for creating the Fabric CA</span>
+<span class="c1"># servers are in the &quot;organizations/fabric-ca&quot; directory. Within the same directory,</span>
+<span class="c1"># the &quot;registerEnroll.sh&quot; script uses the Fabric CA client to create the identities,</span>
+<span class="c1"># certificates, and MSP folders that are needed to create the test network in the</span>
+<span class="c1"># &quot;organizations/ordererOrganizations&quot; directory.</span>
+
+<span class="c1"># Create Organization crypto material using cryptogen or CAs</span>
+<span class="k">function</span> createOrgs<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;organizations/peerOrganizations&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    rm -Rf organizations/peerOrganizations <span class="o">&amp;&amp;</span> rm -Rf organizations/ordererOrganizations
+  <span class="k">fi</span>
+
+  <span class="c1"># Create crypto material using cryptogen</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$CRYPTO</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;cryptogen&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    which cryptogen
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;cryptogen tool not found. exiting&quot;</span>
+    <span class="k">fi</span>
+    infoln <span class="s2">&quot;Generating certificates using cryptogen tool&quot;</span>
+
+    infoln <span class="s2">&quot;Creating Org1 Identities&quot;</span>
+
+    <span class="nb">set</span> -x
+    cryptogen generate --config<span class="o">=</span>./organizations/cryptogen/crypto-config-org1.yaml --output<span class="o">=</span><span class="s2">&quot;organizations&quot;</span>
+    <span class="nv">res</span><span class="o">=</span><span class="nv">$?</span>
+    <span class="o">{</span> <span class="nb">set</span> +x<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$res</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;Failed to generate certificates...&quot;</span>
+    <span class="k">fi</span>
+
+    infoln <span class="s2">&quot;Creating Org2 Identities&quot;</span>
+
+    <span class="nb">set</span> -x
+    cryptogen generate --config<span class="o">=</span>./organizations/cryptogen/crypto-config-org2.yaml --output<span class="o">=</span><span class="s2">&quot;organizations&quot;</span>
+    <span class="nv">res</span><span class="o">=</span><span class="nv">$?</span>
+    <span class="o">{</span> <span class="nb">set</span> +x<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$res</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;Failed to generate certificates...&quot;</span>
+    <span class="k">fi</span>
+
+    infoln <span class="s2">&quot;Creating Orderer Org Identities&quot;</span>
+
+    <span class="nb">set</span> -x
+    cryptogen generate --config<span class="o">=</span>./organizations/cryptogen/crypto-config-orderer.yaml --output<span class="o">=</span><span class="s2">&quot;organizations&quot;</span>
+    <span class="nv">res</span><span class="o">=</span><span class="nv">$?</span>
+    <span class="o">{</span> <span class="nb">set</span> +x<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
+    <span class="k">if</span> <span class="o">[</span> <span class="nv">$res</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+      fatalln <span class="s2">&quot;Failed to generate certificates...&quot;</span>
+    <span class="k">fi</span>
+
+  <span class="k">fi</span>
+
+  <span class="c1"># Create crypto material using Fabric CA</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$CRYPTO</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Certificate Authorities&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    infoln <span class="s2">&quot;Generating certificates using Fabric CA&quot;</span>
+
+    <span class="nv">IMAGE_TAG</span><span class="o">=</span><span class="si">${</span><span class="nv">CA_IMAGETAG</span><span class="si">}</span> docker-compose -f <span class="nv">$COMPOSE_FILE_CA</span> up -d <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+    . organizations/fabric-ca/registerEnroll.sh
+
+  <span class="k">while</span> :
+    <span class="k">do</span>
+      <span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&quot;organizations/fabric-ca/org1/tls-cert.pem&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        sleep <span class="m">1</span>
+      <span class="k">else</span>
+        <span class="nb">break</span>
+      <span class="k">fi</span>
+    <span class="k">done</span>
+
+    infoln <span class="s2">&quot;Creating Org1 Identities&quot;</span>
+
+    createOrg1
+
+    infoln <span class="s2">&quot;Creating Org2 Identities&quot;</span>
+
+    createOrg2
+
+    infoln <span class="s2">&quot;Creating Orderer Org Identities&quot;</span>
+
+    createOrderer
+
+  <span class="k">fi</span>
+
+  infoln <span class="s2">&quot;Generating CCP files for Org1 and Org2&quot;</span>
+  ./organizations/ccp-generate.sh
+<span class="o">}</span>
+
+<span class="c1"># Once you create the organization crypto material, you need to create the</span>
+<span class="c1"># genesis block of the orderer system channel. This block is required to bring</span>
+<span class="c1"># up any orderer nodes and create any application channels.</span>
+
+<span class="c1"># The configtxgen tool is used to create the genesis block. Configtxgen consumes a</span>
+<span class="c1"># &quot;configtx.yaml&quot; file that contains the definitions for the sample network. The</span>
+<span class="c1"># genesis block is defined using the &quot;TwoOrgsOrdererGenesis&quot; profile at the bottom</span>
+<span class="c1"># of the file. This profile defines a sample consortium, &quot;SampleConsortium&quot;,</span>
+<span class="c1"># consisting of our two Peer Orgs. This consortium defines which organizations are</span>
+<span class="c1"># recognized as members of the network. The peer and ordering organizations are defined</span>
+<span class="c1"># in the &quot;Profiles&quot; section at the top of the file. As part of each organization</span>
+<span class="c1"># profile, the file points to a the location of the MSP directory for each member.</span>
+<span class="c1"># This MSP is used to create the channel MSP that defines the root of trust for</span>
+<span class="c1"># each organization. In essence, the channel MSP allows the nodes and users to be</span>
+<span class="c1"># recognized as network members. The file also specifies the anchor peers for each</span>
+<span class="c1"># peer org. In future steps, this same file is used to create the channel creation</span>
+<span class="c1"># transaction and the anchor peer updates.</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># If you receive the following warning, it can be safely ignored:</span>
+<span class="c1">#</span>
+<span class="c1"># [bccsp] GetDefault -&gt; WARN 001 Before using BCCSP, please call InitFactories(). Falling back to bootBCCSP.</span>
+<span class="c1">#</span>
+<span class="c1"># You can ignore the logs regarding intermediate certs, we are not using them in</span>
+<span class="c1"># this crypto implementation.</span>
+
+<span class="c1"># Generate orderer system channel genesis block.</span>
+<span class="k">function</span> createConsortium<span class="o">()</span> <span class="o">{</span>
+  which configtxgen
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    fatalln <span class="s2">&quot;configtxgen tool not found.&quot;</span>
+  <span class="k">fi</span>
+
+  infoln <span class="s2">&quot;Generating Orderer Genesis block&quot;</span>
+
+  <span class="c1"># Note: For some unknown reason (at least for now) the block file can&#39;t be</span>
+  <span class="c1"># named orderer.genesis.block or the orderer will fail to launch!</span>
+  <span class="nb">set</span> -x
+  configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+  <span class="nv">res</span><span class="o">=</span><span class="nv">$?</span>
+  <span class="o">{</span> <span class="nb">set</span> +x<span class="p">;</span> <span class="o">}</span> <span class="m">2</span>&gt;/dev/null
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$res</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    fatalln <span class="s2">&quot;Failed to generate orderer genesis block...&quot;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># After we create the org crypto material and the system channel genesis block,</span>
+<span class="c1"># we can now bring up the peers and ordering service. By default, the base</span>
+<span class="c1"># file for creating the network is &quot;docker-compose-test-net.yaml&quot; in the ``docker``</span>
+<span class="c1"># folder. This file defines the environment variables and file mounts that</span>
+<span class="c1"># point the crypto material and genesis block that were created in earlier.</span>
+
+<span class="c1"># Bring up the peer and orderer nodes using docker compose.</span>
+<span class="k">function</span> networkUp<span class="o">()</span> <span class="o">{</span>
+  checkPrereqs
+  <span class="c1"># generate artifacts if they don&#39;t exist</span>
+  <span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&quot;organizations/peerOrganizations&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    createOrgs
+    createConsortium
+  <span class="k">fi</span>
+
+  <span class="nv">COMPOSE_FILES</span><span class="o">=</span><span class="s2">&quot;-f </span><span class="si">${</span><span class="nv">COMPOSE_FILE_BASE</span><span class="si">}</span><span class="s2">&quot;</span>
+
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">DATABASE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;couchdb&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">COMPOSE_FILES</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">COMPOSE_FILES</span><span class="si">}</span><span class="s2"> -f </span><span class="si">${</span><span class="nv">COMPOSE_FILE_COUCH</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">fi</span>
+
+  <span class="nv">IMAGE_TAG</span><span class="o">=</span><span class="nv">$IMAGETAG</span> docker-compose <span class="si">${</span><span class="nv">COMPOSE_FILES</span><span class="si">}</span> up -d <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+
+  docker ps -a
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    fatalln <span class="s2">&quot;Unable to start network&quot;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># call the script to create the channel, join the peers of org1 and org2,</span>
+<span class="c1"># and then update the anchor peers for each organization</span>
+<span class="k">function</span> createChannel<span class="o">()</span> <span class="o">{</span>
+  <span class="c1"># Bring up the network if it is not already up.</span>
+
+  <span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&quot;organizations/peerOrganizations&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    infoln <span class="s2">&quot;Bringing up network&quot;</span>
+    networkUp
+  <span class="k">fi</span>
+
+  <span class="c1"># now run the script that creates a channel. This script uses configtxgen once</span>
+  <span class="c1"># more to create the channel creation transaction and the anchor peer updates.</span>
+  <span class="c1"># configtx.yaml is mounted in the cli container, which allows us to use it to</span>
+  <span class="c1"># create the channel artifacts</span>
+  scripts/createChannel.sh <span class="nv">$CHANNEL_NAME</span> <span class="nv">$CLI_DELAY</span> <span class="nv">$MAX_RETRY</span> <span class="nv">$VERBOSE</span>
+<span class="o">}</span>
+
+
+<span class="c1">## Call the script to deploy a chaincode to the channel</span>
+<span class="k">function</span> deployCC<span class="o">()</span> <span class="o">{</span>
+  scripts/deployCC.sh <span class="nv">$CHANNEL_NAME</span> <span class="nv">$CC_NAME</span> <span class="nv">$CC_SRC_PATH</span> <span class="nv">$CC_SRC_LANGUAGE</span> <span class="nv">$CC_VERSION</span> <span class="nv">$CC_SEQUENCE</span> <span class="nv">$CC_INIT_FCN</span> <span class="nv">$CC_END_POLICY</span> <span class="nv">$CC_COLL_CONFIG</span> <span class="nv">$CLI_DELAY</span> <span class="nv">$MAX_RETRY</span> <span class="nv">$VERBOSE</span>
+
+  <span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    fatalln <span class="s2">&quot;Deploying chaincode failed&quot;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+
+<span class="c1"># Tear down running network</span>
+<span class="k">function</span> networkDown<span class="o">()</span> <span class="o">{</span>
+  <span class="c1"># stop org3 containers also in addition to org1 and org2, in case we were running sample to add org3</span>
+  docker-compose -f <span class="nv">$COMPOSE_FILE_BASE</span> -f <span class="nv">$COMPOSE_FILE_COUCH</span> -f <span class="nv">$COMPOSE_FILE_CA</span> down --volumes --remove-orphans
+  docker-compose -f <span class="nv">$COMPOSE_FILE_COUCH_ORG3</span> -f <span class="nv">$COMPOSE_FILE_ORG3</span> down --volumes --remove-orphans
+  <span class="c1"># Don&#39;t remove the generated artifacts -- note, the ledgers are always removed</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;restart&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="c1"># Bring down the network, deleting the volumes</span>
+    <span class="c1">#Cleanup the chaincode containers</span>
+    clearContainers
+    <span class="c1">#Cleanup images</span>
+    removeUnwantedImages
+    <span class="c1"># remove orderer block and other channel configuration transactions and certs</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf system-genesis-block/*.block organizations/peerOrganizations organizations/ordererOrganizations&#39;</span>
+    <span class="c1">## remove fabric ca artifacts</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf organizations/fabric-ca/org1/msp organizations/fabric-ca/org1/tls-cert.pem organizations/fabric-ca/org1/ca-cert.pem organizations/fabric-ca/org1/IssuerPublicKey organizations/fabric-ca/org1/IssuerRevocationPublicKey organizations/fabric-ca/org1/fabric-ca-server.db&#39;</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf organizations/fabric-ca/org2/msp organizations/fabric-ca/org2/tls-cert.pem organizations/fabric-ca/org2/ca-cert.pem organizations/fabric-ca/org2/IssuerPublicKey organizations/fabric-ca/org2/IssuerRevocationPublicKey organizations/fabric-ca/org2/fabric-ca-server.db&#39;</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf organizations/fabric-ca/ordererOrg/msp organizations/fabric-ca/ordererOrg/tls-cert.pem organizations/fabric-ca/ordererOrg/ca-cert.pem organizations/fabric-ca/ordererOrg/IssuerPublicKey organizations/fabric-ca/ordererOrg/IssuerRevocationPublicKey organizations/fabric-ca/ordererOrg/fabric-ca-server.db&#39;</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf addOrg3/fabric-ca/org3/msp addOrg3/fabric-ca/org3/tls-cert.pem addOrg3/fabric-ca/org3/ca-cert.pem addOrg3/fabric-ca/org3/IssuerPublicKey addOrg3/fabric-ca/org3/IssuerRevocationPublicKey addOrg3/fabric-ca/org3/fabric-ca-server.db&#39;</span>
+    <span class="c1"># remove channel and script artifacts</span>
+    docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/data busybox sh -c <span class="s1">&#39;cd /data &amp;&amp; rm -rf channel-artifacts log.txt *.tar.gz&#39;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="c1"># Obtain the OS and Architecture string that will be used to select the correct</span>
+<span class="c1"># native binaries for your platform, e.g., darwin-amd64 or linux-amd64</span>
+<span class="nv">OS_ARCH</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>uname -s <span class="p">|</span> tr <span class="s1">&#39;[:upper:]&#39;</span> <span class="s1">&#39;[:lower:]&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/mingw64_nt.*/windows/&#39;</span><span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m <span class="p">|</span> sed <span class="s1">&#39;s/x86_64/amd64/g&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print tolower($0)}&#39;</span><span class="k">)</span>
+<span class="c1"># Using crpto vs CA. default is cryptogen</span>
+<span class="nv">CRYPTO</span><span class="o">=</span><span class="s2">&quot;cryptogen&quot;</span>
+<span class="c1"># timeout duration - the duration the CLI should wait for a response from</span>
+<span class="c1"># another container before giving up</span>
+<span class="nv">MAX_RETRY</span><span class="o">=</span><span class="m">5</span>
+<span class="c1"># default for delay between commands</span>
+<span class="nv">CLI_DELAY</span><span class="o">=</span><span class="m">3</span>
+<span class="c1"># channel name defaults to &quot;mychannel&quot;</span>
+<span class="nv">CHANNEL_NAME</span><span class="o">=</span><span class="s2">&quot;mychannel&quot;</span>
+<span class="c1"># chaincode name defaults to &quot;NA&quot;</span>
+<span class="nv">CC_NAME</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># chaincode path defaults to &quot;NA&quot;</span>
+<span class="nv">CC_SRC_PATH</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># endorsement policy defaults to &quot;NA&quot;. This would allow chaincodes to use the majority default policy.</span>
+<span class="nv">CC_END_POLICY</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># collection configuration defaults to &quot;NA&quot;</span>
+<span class="nv">CC_COLL_CONFIG</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># chaincode init function defaults to &quot;NA&quot;</span>
+<span class="nv">CC_INIT_FCN</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># use this as the default docker-compose yaml definition</span>
+<span class="nv">COMPOSE_FILE_BASE</span><span class="o">=</span>docker/docker-compose-test-net.yaml
+<span class="c1"># docker-compose.yaml file if you are using couchdb</span>
+<span class="nv">COMPOSE_FILE_COUCH</span><span class="o">=</span>docker/docker-compose-couch.yaml
+<span class="c1"># certificate authorities compose file</span>
+<span class="nv">COMPOSE_FILE_CA</span><span class="o">=</span>docker/docker-compose-ca.yaml
+<span class="c1"># use this as the docker compose couch file for org3</span>
+<span class="nv">COMPOSE_FILE_COUCH_ORG3</span><span class="o">=</span>addOrg3/docker/docker-compose-couch-org3.yaml
+<span class="c1"># use this as the default docker-compose yaml definition for org3</span>
+<span class="nv">COMPOSE_FILE_ORG3</span><span class="o">=</span>addOrg3/docker/docker-compose-org3.yaml
+<span class="c1">#</span>
+<span class="c1"># chaincode language defaults to &quot;NA&quot;</span>
+<span class="nv">CC_SRC_LANGUAGE</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span>
+<span class="c1"># Chaincode version</span>
+<span class="nv">CC_VERSION</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span>
+<span class="c1"># Chaincode definition sequence</span>
+<span class="nv">CC_SEQUENCE</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># default image tag</span>
+<span class="nv">IMAGETAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
+<span class="c1"># default ca image tag</span>
+<span class="nv">CA_IMAGETAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
+<span class="c1"># default database</span>
+<span class="nv">DATABASE</span><span class="o">=</span><span class="s2">&quot;leveldb&quot;</span>
+
+<span class="c1"># Parse commandline args</span>
+
+<span class="c1">## Parse mode</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -lt <span class="m">1</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  printHelp
+  <span class="nb">exit</span> <span class="m">0</span>
+<span class="k">else</span>
+  <span class="nv">MODE</span><span class="o">=</span><span class="nv">$1</span>
+  <span class="nb">shift</span>
+<span class="k">fi</span>
+
+<span class="c1"># parse a createChannel subcommand if used</span>
+<span class="k">if</span> <span class="o">[[</span> <span class="nv">$#</span> -ge <span class="m">1</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">then</span>
+  <span class="nv">key</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+  <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="nv">$key</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;createChannel&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="nb">export</span> <span class="nv">MODE</span><span class="o">=</span><span class="s2">&quot;createChannel&quot;</span>
+      <span class="nb">shift</span>
+  <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># parse flags</span>
+
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$#</span> -ge <span class="m">1</span> <span class="o">]]</span> <span class="p">;</span> <span class="k">do</span>
+  <span class="nv">key</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+  <span class="k">case</span> <span class="nv">$key</span> in
+  -h <span class="o">)</span>
+    printHelp <span class="nv">$MODE</span>
+    <span class="nb">exit</span> <span class="m">0</span>
+    <span class="p">;;</span>
+  -c <span class="o">)</span>
+    <span class="nv">CHANNEL_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ca <span class="o">)</span>
+    <span class="nv">CRYPTO</span><span class="o">=</span><span class="s2">&quot;Certificate Authorities&quot;</span>
+    <span class="p">;;</span>
+  -r <span class="o">)</span>
+    <span class="nv">MAX_RETRY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -d <span class="o">)</span>
+    <span class="nv">CLI_DELAY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -s <span class="o">)</span>
+    <span class="nv">DATABASE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccl <span class="o">)</span>
+    <span class="nv">CC_SRC_LANGUAGE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccn <span class="o">)</span>
+    <span class="nv">CC_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccv <span class="o">)</span>
+    <span class="nv">CC_VERSION</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccs <span class="o">)</span>
+    <span class="nv">CC_SEQUENCE</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccp <span class="o">)</span>
+    <span class="nv">CC_SRC_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -ccep <span class="o">)</span>
+    <span class="nv">CC_END_POLICY</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -cccg <span class="o">)</span>
+    <span class="nv">CC_COLL_CONFIG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -cci <span class="o">)</span>
+    <span class="nv">CC_INIT_FCN</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -i <span class="o">)</span>
+    <span class="nv">IMAGETAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -cai <span class="o">)</span>
+    <span class="nv">CA_IMAGETAG</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$2</span><span class="s2">&quot;</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  -verbose <span class="o">)</span>
+    <span class="nv">VERBOSE</span><span class="o">=</span><span class="nb">true</span>
+    <span class="nb">shift</span>
+    <span class="p">;;</span>
+  * <span class="o">)</span>
+    errorln <span class="s2">&quot;Unknown flag: </span><span class="nv">$key</span><span class="s2">&quot;</span>
+    printHelp
+    <span class="nb">exit</span> <span class="m">1</span>
+    <span class="p">;;</span>
+  <span class="k">esac</span>
+  <span class="nb">shift</span>
+<span class="k">done</span>
+
+<span class="c1"># Are we generating crypto material with this command?</span>
+<span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&quot;organizations/peerOrganizations&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nv">CRYPTO_MODE</span><span class="o">=</span><span class="s2">&quot;with crypto from &#39;</span><span class="si">${</span><span class="nv">CRYPTO</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="k">else</span>
+  <span class="nv">CRYPTO_MODE</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="k">fi</span>
+
+<span class="c1"># Determine mode of operation and printing out what we asked for</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  infoln <span class="s2">&quot;Starting nodes with CLI timeout of &#39;</span><span class="si">${</span><span class="nv">MAX_RETRY</span><span class="si">}</span><span class="s2">&#39; tries and CLI delay of &#39;</span><span class="si">${</span><span class="nv">CLI_DELAY</span><span class="si">}</span><span class="s2">&#39; seconds and using database &#39;</span><span class="si">${</span><span class="nv">DATABASE</span><span class="si">}</span><span class="s2">&#39; </span><span class="si">${</span><span class="nv">CRYPTO_MODE</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;createChannel&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  infoln <span class="s2">&quot;Creating channel &#39;</span><span class="si">${</span><span class="nv">CHANNEL_NAME</span><span class="si">}</span><span class="s2">&#39;.&quot;</span>
+  infoln <span class="s2">&quot;If network is not up, starting nodes with CLI timeout of &#39;</span><span class="si">${</span><span class="nv">MAX_RETRY</span><span class="si">}</span><span class="s2">&#39; tries and CLI delay of &#39;</span><span class="si">${</span><span class="nv">CLI_DELAY</span><span class="si">}</span><span class="s2">&#39; seconds and using database &#39;</span><span class="si">${</span><span class="nv">DATABASE</span><span class="si">}</span><span class="s2"> </span><span class="si">${</span><span class="nv">CRYPTO_MODE</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;down&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  infoln <span class="s2">&quot;Stopping network&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;restart&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  infoln <span class="s2">&quot;Restarting network&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$MODE</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;deployCC&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  infoln <span class="s2">&quot;deploying chaincode on channel &#39;</span><span class="si">${</span><span class="nv">CHANNEL_NAME</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="k">else</span>
+  printHelp
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MODE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  networkUp
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MODE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;createChannel&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  createChannel
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MODE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;deployCC&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  deployCC
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">MODE</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;down&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  networkDown
+<span class="k">else</span>
+  printHelp
+  <span class="nb">exit</span> <span class="m">1</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</div>
+</details></div></blockquote>
+</li>
+<li><p>Create and join channel</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./network.sh createChannel
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="deploy-sample-chaincode">
+<h3>Deploy sample chaincode<a class="headerlink" href="#deploy-sample-chaincode" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Deploy and start a sample chaincode on the channel</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript -ccl javascript
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Set system enviroment variables for using binaries</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/../bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span><span class="nv">$PWD</span>/../config/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Invoking chaincode pretending ORG1</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Environment variables for Org1</span>
+
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span> <span class="nv">CORE_PEER_LOCALMSPID</span><span class="o">=</span><span class="s2">&quot;Org1MSP&quot;</span>
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+<span class="nb">export</span> <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+<span class="nb">export</span> <span class="nv">CORE_PEER_ADDRESS</span><span class="o">=</span>localhost:7051
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Run command to initialize the ledger with assets</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer chaincode invoke <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+-C mychannel <span class="se">\</span>
+-n basic <span class="se">\</span>
+--peerAddresses localhost:7051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt <span class="se">\</span>
+--peerAddresses localhost:9051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt <span class="se">\</span>
+-c <span class="s1">&#39;{&quot;function&quot;:&quot;InitLedger&quot;,&quot;Args&quot;:[]}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Query the ledger to get list of assets</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer chaincode query <span class="se">\</span>
+-C mychannel <span class="se">\</span>
+-n basic <span class="se">\</span>
+-c <span class="s1">&#39;{&quot;Args&quot;:[&quot;GetAllAssets&quot;]}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Querying chaincode pretending ORG2</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Environment variables for Org2</span>
+
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span> <span class="nv">CORE_PEER_LOCALMSPID</span><span class="o">=</span><span class="s2">&quot;Org2MSP&quot;</span>
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+<span class="nb">export</span> <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+<span class="nb">export</span> <span class="nv">CORE_PEER_ADDRESS</span><span class="o">=</span>localhost:9051
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Query the ledger to get list of assets as ORG2</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer chaincode query -C mychannel -n basic -c <span class="s1">&#39;{&quot;Args&quot;:[&quot;ReadAsset&quot;,&quot;asset6&quot;]}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="destroy-network">
+<h3>Destroy network<a class="headerlink" href="#destroy-network" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Destroy the network using below command</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./network.sh down
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="deploy-chaincode-in-development">
+<h3>Deploy chaincode in Development<a class="headerlink" href="#deploy-chaincode-in-development" title="Permalink to this headline">¶</a></h3>
+<p>In this step we will be deploying our chaincode while in development.</p>
+<div class="section" id="chaincode-lifecycle-flow">
+<h4>Chaincode Lifecycle Flow<a class="headerlink" href="#chaincode-lifecycle-flow" title="Permalink to this headline">¶</a></h4>
+<img alt="../../../../_images/chaincodeLifecycle.jpg" src="../../../../_images/chaincodeLifecycle.jpg" />
+<ul>
+<li><p>Develop chaincode. For eg.</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Contract</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fabric-contract-api&#39;</span><span class="p">);</span>
+<span class="kr">class</span> <span class="nx">TestChain</span> <span class="kr">extends</span> <span class="nx">Contract</span> <span class="p">{</span>
+    <span class="nx">async</span> <span class="nx">initLedger</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;=== END : Initialize Ledger ===&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">async</span> <span class="nx">helloWorld</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">TestChain</span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="prepare-enviroment-as-org1">
+<h4>Prepare Enviroment as Org1<a class="headerlink" href="#prepare-enviroment-as-org1" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CORE_PEER_LOCALMSPID</span><span class="o">=</span><span class="s2">&quot;Org1MSP&quot;</span>
+<span class="nb">export</span> <span class="nv">FABRIC_CFG_PATH</span><span class="o">=</span><span class="nv">$PWD</span>/../config/
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ENABLED</span><span class="o">=</span><span class="nb">true</span>
+<span class="nb">export</span> <span class="nv">CORE_PEER_TLS_ROOTCERT_FILE</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+<span class="nb">export</span> <span class="nv">CORE_PEER_MSPCONFIGPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+<span class="nb">export</span> <span class="nv">CORE_PEER_ADDRESS</span><span class="o">=</span>localhost:7051
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="package-chaincode">
+<h4>Package Chaincode<a class="headerlink" href="#package-chaincode" title="Permalink to this headline">¶</a></h4>
+<p>Make sure to change the chaincode path in the below command</p>
+<blockquote>
+<div><div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span>export PATH=${PWD}/../bin:$PATH
+export FABRIC_CFG_PATH=$PWD/../config/
+peer version
+peer lifecycle chaincode package testchain.tar.gz \--path &lt;chaincode path&gt; --lang node --label testchain_1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do check the generated testchain.tar.gz in the working directory</p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="install-chaincode">
+<h4>Install Chaincode<a class="headerlink" href="#install-chaincode" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Install chaincode as Org1</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode install testchain.tar.gz
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="approve-chaincode">
+<h4>Approve chaincode<a class="headerlink" href="#approve-chaincode" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Check for installed chaincode and package id.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode queryinstalled
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>copy the package id from the output.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Create enviroment variable for chaincode id</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CC_PACKAGE_ID</span><span class="o">=</span>testchain_1:<span class="o">{</span>packageid from <span class="k">return</span> from query command<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Approve the chaincode installed as Org1.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode approveformyorg <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">1</span>.0 <span class="se">\</span>
+--package-id <span class="nv">$CC_PACKAGE_ID</span> <span class="se">\</span>
+--sequence <span class="m">1</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlsca certs/tlsca.example.com-cert.pem
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="commit-chaincode">
+<h4>Commit chaincode<a class="headerlink" href="#commit-chaincode" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Check commit readiness i.e. if the organisations has approved</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode checkcommitreadiness <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">1</span>.0 <span class="se">\</span>
+--sequence <span class="m">1</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+--output json
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Commit chaincode to the network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode commit <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">1</span>.0 <span class="se">\</span>
+--sequence <span class="m">1</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+--peerAddresses localhost:7051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt <span class="se">\</span>
+--peerAddresses localhost:9051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="verify-chaincode-commit">
+<h4>Verify Chaincode Commit<a class="headerlink" href="#verify-chaincode-commit" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode querycommitted <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="invoke-chaincode">
+<h4>Invoke Chaincode<a class="headerlink" href="#invoke-chaincode" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Invoke chaincode installed above</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer chaincode invoke <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+-C mychannel <span class="se">\</span>
+-n testchain <span class="se">\</span>
+--peerAddresses localhost:7051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt <span class="se">\</span>
+--peerAddresses localhost:9051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt -c <span class="s1">&#39;{&quot;function&quot;:&quot;initLedger&quot;,&quot;Args&quot;:[]}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Query chaincode for arguments</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer chaincode query -C mychannel -n testchain -c <span class="s1">&#39;{&quot;Args&quot;:[&quot;helloWorld&quot;]}&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="upgrade-chaincode">
+<h4>Upgrade Chaincode<a class="headerlink" href="#upgrade-chaincode" title="Permalink to this headline">¶</a></h4>
+<p>After updation of chaincode, we need to reinstall, approve and commit the code</p>
+<ul>
+<li><p>Package chaincode</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode package testchain_2.tar.gz --path &lt;chaincode path&gt; --lang node --label testchain_2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the version number of the chaincode package above</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Reinstall chaincode</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode install testchain_2.tar.gz
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Query for installed chaincode</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode queryinstalled
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Export chaincode package id using output from above command</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">NEW_CC_PACKAGE_ID</span><span class="o">=</span>testchain_2:<span class="o">{</span>id from previous command<span class="o">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Approve chaincode as Org1</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode approveformyorg <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">2</span>.0 <span class="se">\</span>
+--package-id <span class="nv">$NEW_CC_PACKAGE_ID</span> <span class="se">\</span>
+--sequence <span class="m">2</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check commit readiness</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode checkcommitreadiness <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">2</span>.0 <span class="se">\</span>
+--sequence <span class="m">2</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+--output json
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Commit chaincode to the fabric Network</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>peer lifecycle chaincode commit <span class="se">\</span>
+-o localhost:7050 <span class="se">\</span>
+--ordererTLSHostnameOverride orderer.example.com <span class="se">\</span>
+--channelID mychannel <span class="se">\</span>
+--name testchain <span class="se">\</span>
+--version <span class="m">2</span>.0 <span class="se">\</span>
+--sequence <span class="m">2</span> <span class="se">\</span>
+--tls <span class="se">\</span>
+--cafile <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem <span class="se">\</span>
+--peerAddresses localhost:7051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt <span class="se">\</span>
+--peerAddresses localhost:9051 <span class="se">\</span>
+--tlsRootCertFiles <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="chaincode-to-store-and-retrieve-json-data">
+<h2>Chaincode to store and retrieve JSON data<a class="headerlink" href="#chaincode-to-store-and-retrieve-json-data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="create-a-local-wallet-and-use-the-fabric-sdk-to-call-your-chaincode">
+<h2>Create a local wallet and use the Fabric SDK to call your chaincode<a class="headerlink" href="#create-a-local-wallet-and-use-the-fabric-sdk-to-call-your-chaincode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="add-a-second-and-third-peer-node-to-your-network-each-with-a-different-organization">
+<h2>Add a second and third peer node to your network each with a different organization.<a class="headerlink" href="#add-a-second-and-third-peer-node-to-your-network-each-with-a-different-organization" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="join-the-new-peers-to-the-channel-and-endorse-them-for-the-chaincode">
+<h2>Join the new peers to the channel and endorse them for the chaincode<a class="headerlink" href="#join-the-new-peers-to-the-channel-and-endorse-them-for-the-chaincode" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="json-data-to-couchdb-and-query-the-data">
+<h2>JSON data to CouchDB and query the data.<a class="headerlink" href="#json-data-to-couchdb-and-query-the-data" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="create-chaincode-and-web-dapp-to-represent-an-enterprise-workflow">
+<h2>Create chaincode and web dApp to represent an enterprise workflow<a class="headerlink" href="#create-chaincode-and-web-dapp-to-represent-an-enterprise-workflow" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../constructs/index.html" title="previous page">Constructs</a>
+    <a class='right-next' id="next-link" href="../rawSetup/index.html" title="next page">Hyperledger Fabric from Scratch</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+     <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, dev.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+
+
+  </body>
+</html>
