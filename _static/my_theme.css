@@ -1,0 +1,12 @@
+
+.wy-nav-content {
+    max-width: 1200px !important;
+}
+
+.wy-side-nav-search, .wy-nav-top {
+    background: #EF6C05;
+}
+
+.dataTables_filter {
+	display: none;
+}
